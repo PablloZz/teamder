@@ -1,0 +1,40 @@
+.usersContainer {
+  padding: 0 40px;
+}
+
+.userContainer {
+  padding: 10px 0 15px 0;
+  border-bottom: 1px solid #3A444C;
+}
+
+.userContainer :is(img, h4, button, p) {
+  margin-bottom: 10px;
+}
+
+.image {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+
+.activePage {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.button {
+  background: #FFB800;
+  color: #000000;
+  border-radius: 4px;
+  padding: 6px 16px;
+  margin-right: 1em;
+
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 117.8%;
+  text-align: center;
+  width: 90px;
+
+
+  cursor: pointer;
+}

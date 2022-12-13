@@ -1,0 +1,13 @@
+.header {
+  grid-area: header;
+  background-color: black;
+  color: white;
+  padding: 20px 30px;
+  border-left: 1px solid #3A444C;
+}
+
+.headersPosition {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

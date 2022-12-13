@@ -1,0 +1,73 @@
+.nav {
+  grid-area: nav;
+  background-color: black;
+  height: 100vh;
+  padding: 25px 50px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.navbarContentPosition {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 30px;
+
+  font-weight: 900;
+  font-size: 1.875em;
+  line-height: 1.25em;
+  text-transform: uppercase;
+  margin-bottom: 1.33em;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: -1.35px;
+
+  color: #FFFFFF;
+}
+
+.menu {
+  height: 340px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 195px;
+  height: 35px;
+  padding: 6px 16px;
+
+  background: #FFB800;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.14), 0px 1px 5px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+    
+  font-family: 'Manrope';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+      
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+
+  color: #000000;
+}
+
+.btnMT {
+  margin-top: 3.125em;
+  font-size: 1rem;
+}

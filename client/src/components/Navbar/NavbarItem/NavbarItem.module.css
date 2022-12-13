@@ -1,0 +1,24 @@
+.link {
+  height: 25px;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.15em;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+
+  color: #FFFFFF;
+}
+
+.active {
+  color: #FFB800;
+  height: 25px;
+
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.15em;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.015em;
+    
+}

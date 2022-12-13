@@ -21,15 +21,15 @@ router.post("/createpost", requireLogin, (req, res) => {
 
 router.get("/allposts", (req, res) => {
   Post.find()
-    .populate("postedBy", "name _id")
-    .populate("comments.postedBy", "name _id")
+    .populate("postedBy", "name _id photo")
+    .populate("comments.postedBy", "name _id photo")
     .then(posts => res.json({ posts }))
 })
 
 router.get("/myposts", requireLogin, (req, res) => {
   Post.find({ postedBy: req.user._id })
-    .populate("postedBy", "name _id")
-    .populate("comments.postedBy", "name _id")
+    .populate("postedBy", "name _id photo")
+    .populate("comments.postedBy", "name _id photo")
     .then(myposts => res.json({ posts: myposts }))
 })
 
@@ -41,8 +41,8 @@ router.put("/like", requireLogin, (req, res) => {
     },
     { new: true }
   )
-    .populate("postedBy", "name _id")
-    .populate("comments.postedBy", "name _id")
+    .populate("postedBy", "name _id photo")
+    .populate("comments.postedBy", "name _id photo")
     .exec((err, result) => {
       if (err) {
         return res.status(422).json({ error: err })
@@ -59,8 +59,8 @@ router.put("/unlike", requireLogin, (req, res) => {
     },
     { new: true }
   )
-    .populate("postedBy", "name _id")
-    .populate("comments.postedBy", "name _id")
+    .populate("postedBy", "name _id photo")
+    .populate("comments.postedBy", "name _id photo")
     .exec((err, result) => {
       if (err) {
         return res.status(422).json({ error: err })
@@ -81,7 +81,8 @@ router.put("/comment", requireLogin, (req, res) => {
     },
     { new: true }
   )
-    .populate("comments.postedBy", "name _id")
+    .populate("comments.postedBy", "name _id photo")
+    .populate("postedBy", "name _id photo")
     .exec((err, result) => {
       if (err) {
         return res.status(422).json({ error: err })
@@ -109,49 +110,20 @@ router.delete("/deletepost/:postId", requireLogin, (req, res) => {
     })
 })
 
-// router.delete("/deletecomment/:postId/:commentId", requireLogin, (req, res) => {
-//   Post.findById(req.params.postId, ).populate("postedBy", "_id").exec((err, post) => {
-//     if (err || !post) {
-//       return console.log(err)
-//     }
+router.delete("/deletecomment/:postId/:commentId", requireLogin, (req, res) => {
+  console.log(req.params.postId, req.params.commentId)
+  Post.findByIdAndUpdate(req.params.postId, {
+    $pull: { comments: { _id: req.params.commentId } },
+  }, {new: true})
+    .populate("comments.postedBy", "_id name photo")
+    .populate("postedBy", "_id name photo")
+    .exec((err, comment) => {
+      if (err || !comment) {
+        return res.status(422).json({ error: err })
+      }
+      res.json(comment)
+    })
     
-//       console.log(req.params.postId, req.params.commentId)
-//   })
-// })
-
-// router.delete("/deletepost/:postId/:commentId", requireLogin, (req, res) => {
-//   Post.findByIdAndUpdate(req.params.postId, {
-//     $pull: {comments: req.params.commentId}
-//   }, {new: true})
-//     .exec((err, post) => {
-//       if (err || !post) {
-//         return res.status(422).json({ error: err })
-//       }
-//         Comment.findByIdAndDelete(req.params.commentId).then(res => console.log(res))
-//     })
-// })
-
-router.delete("/comments/:postId/:commentId", async function (req, res) {
-  try {
-    const post = await Post.findByIdAndUpdate(
-      req.params.postId,
-      {
-        $pull: { comments: req.params.commentId },
-      },
-      { new: true }
-    )
-
-    if (!post) {
-      return res.status(400).send("Post not found")
-    }
-
-    console.log(post)
-
-    res.send("Success")
-  } catch (err) {
-    console.log(err)
-    res.status(500).send("Something went wrong")
-  }
 })
 
 module.exports = router

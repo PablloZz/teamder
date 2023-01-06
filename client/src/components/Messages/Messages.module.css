@@ -1,6 +1,6 @@
-.main {
-  grid-area: main;
-  background-color: black;
-  color: white;
-  padding: 30px 35px 0px 35px;
+
+
+.buttonContainer {
+  width: 12em;
+  height: 2.5em;
 }

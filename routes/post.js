@@ -15,22 +15,33 @@ router.post("/createpost", requireLogin, (req, res) => {
   const post = new Post({ body, postedBy: req.user, photo: pic })
   post
     .save()
-    .then(result => res.json({ post: result }))
-    .catch(err => console.log(err))
+    .then((result) => res.json({ post: result }))
+    .catch((err) => console.log(err))
 })
 
 router.get("/allposts", (req, res) => {
   Post.find()
     .populate("postedBy", "name _id photo")
     .populate("comments.postedBy", "name _id photo")
-    .then(posts => res.json({ posts }))
+    .then((posts) => res.json({ posts }))
+    .catch((err) => res.status(422).json({ error: err }))
+})
+
+router.get("/followingposts", requireLogin, (req, res) => {
+  Post.find({ postedBy: { $in: req.user.following } })
+    .populate("postedBy", "name _id photo")
+    .populate("comments.postedBy", "name _id photo")
+    .then((posts) => {
+      res.json(posts)
+    })
+    .catch((err) => res.status(422).json({ error: err }))
 })
 
 router.get("/myposts", requireLogin, (req, res) => {
   Post.find({ postedBy: req.user._id })
     .populate("postedBy", "name _id photo")
     .populate("comments.postedBy", "name _id photo")
-    .then(myposts => res.json({ posts: myposts }))
+    .then((myposts) => res.json({ posts: myposts }))
 })
 
 router.put("/like", requireLogin, (req, res) => {
@@ -97,24 +108,28 @@ router.delete("/deletepost/:postId", requireLogin, (req, res) => {
     .populate("postedBy", "_id")
     .exec((err, post) => {
       if (err || !post) {
-        return res.status(422).json({error: err})
+        return res.status(422).json({ error: err })
       }
       if (post.postedBy._id.toString() === req.user._id.toString()) {
         post
           .remove()
-          .then(result => {
+          .then((result) => {
             res.json(result)
           })
-          .catch(err => console.log(err))
+          .catch((err) => console.log(err))
       }
     })
 })
 
 router.delete("/deletecomment/:postId/:commentId", requireLogin, (req, res) => {
   console.log(req.params.postId, req.params.commentId)
-  Post.findByIdAndUpdate(req.params.postId, {
-    $pull: { comments: { _id: req.params.commentId } },
-  }, {new: true})
+  Post.findByIdAndUpdate(
+    req.params.postId,
+    {
+      $pull: { comments: { _id: req.params.commentId } },
+    },
+    { new: true }
+  )
     .populate("comments.postedBy", "_id name photo")
     .populate("postedBy", "_id name photo")
     .exec((err, comment) => {
@@ -123,7 +138,6 @@ router.delete("/deletecomment/:postId/:commentId", requireLogin, (req, res) => {
       }
       res.json(comment)
     })
-    
 })
 
 module.exports = router

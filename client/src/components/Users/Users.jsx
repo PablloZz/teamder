@@ -1,31 +1,36 @@
 import React from "react"
 import styles from "./Users.module.css"
 import { NavLink } from "react-router-dom"
+import { Button } from "../../UI/button/Button"
 
 function Users(props) {
+  if (!props.users.length) {
+    return <p style={{color: "white"}}>Loading...</p>
+  }
+
   return (
     <main className="main">
       <div className={styles.usersContainer}>
-        {props.users.map(user => {
+        {props.users.map((user) => {
           let button
 
           if (user.followers.includes(props.id)) {
             button = (
-              <button
+              <Button
                 onClick={() => props.unfollow(user._id)}
-                className={styles.button}
+                style={{ textTransform: "capitalize" }}
               >
                 Unfollow
-              </button>
+              </Button>
             )
           } else {
             button = (
-              <button
+              <Button
                 onClick={() => props.follow(user._id)}
-                className={styles.button}
+                style={{ textTransform: "capitalize" }}
               >
                 Follow
-              </button>
+              </Button>
             )
           }
           return (
@@ -44,7 +49,9 @@ function Users(props) {
                   <h4>
                     {user.name} @{user.login}
                   </h4>
-                  {props.id === user._id ? null : button}
+                  <div className={styles.buttonContainer}>
+                    {props.id === user._id ? null : button}
+                  </div>
                 </div>
                 <div>
                   <p>{user.city}</p>

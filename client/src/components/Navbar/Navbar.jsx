@@ -1,10 +1,10 @@
 import React from "react"
-import styles from "./Navbar.module.css"
+import styles from "./navbar.module.css"
 import NavbarItem from "./NavbarItem/NavbarItem"
-import { NavLink, useNavigate } from "react-router-dom"
-import { useDispatch } from "react-redux";
-import { setAuthUserData } from "../../redux/auth-reducer";
-
+import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { setAuthUserData } from "../../redux/auth-reducer"
+import LinkButton from "../../UI/button/LinkButton"
 
 const Navbar = (props) => {
   const navigate = useNavigate()
@@ -34,19 +34,16 @@ const Navbar = (props) => {
             />
             <NavbarItem itemValue={"Profile"} linkValue="/profile/posts" />
           </ul>
-          <NavLink
-            to="/create-team"
-            className={`${styles.btn} ${styles.btnMT}`}
-          >
-            Create a team
-          </NavLink>
+          <div className={styles.buttonContainer}>
+            <LinkButton location="/create-team">Create a Team</LinkButton>
+          </div>
         </div>
-        <a href="/signin" className={`${styles.btn}`} onClick={logoutHandler}>
-          Log out
-        </a>
+        <div className={styles.buttonContainer}>
+          <LinkButton to="/signin" onClick={logoutHandler}>Log Out</LinkButton>
+        </div>
       </div>
     </nav>
   )
-};
+}
 
-export default Navbar;
+export default Navbar

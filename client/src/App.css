@@ -31,12 +31,14 @@ img {
   "nav header sidebar"
   "nav main sidebar"
   "nav main sidebar";
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1.5fr 1.5fr;
   grid-template-rows: 80px;
 }
 
 .main {
+  grid-area: main;
   background-color: black;
   color: white;
   border-left: 1px solid #3A444C;
+  padding: 30px 35px 0px 15px;
 }

@@ -5,7 +5,6 @@ import Navbar from "./components/Navbar/Navbar"
 import HeaderContainer from "./components/Header/HeaderContainer"
 import ProfileContainer from "./components/Profile/ProfileContainer"
 import Sidebar from "./components/Sidebar/Sidebar"
-import Home from "./components/Home/Home"
 import MyTeams from "./components/MyTeams/MyTeams"
 import Notifications from "./components/Notifications/Notifications"
 import MessagesContainer from "./components/Messages/MessagesContainer"
@@ -15,11 +14,12 @@ import Signin from "./components/Signin/Signin"
 import { useDispatch } from "react-redux"
 import { setAuthUserData } from "./redux/auth-reducer"
 import UserProfileContainer from "./components/UserProfile/UserProfileContainer"
+import HomeContainer from "./components/Home/HomeContainer"
 
-const App = props => {
+const App = (props) => {
   const dispatch = useDispatch()
-  const [isLoggedIn, setIsLoggedIn] = useState()
-  
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("jwt"))
+
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("user"))
 
@@ -29,16 +29,15 @@ const App = props => {
     } else {
       setIsLoggedIn(false)
     }
-    //eslint-disable-next-line
   }, [])
-  
+
   return (
     <div>
       {isLoggedIn ? (
         <div className="wrapper container">
           <Navbar />
           <Routes>
-            <Route path="home" element={<Home />} />
+            <Route path="home" element={<HomeContainer />} />
             <Route path="profile" element={<ProfileContainer />}>
               <Route path="posts" />
               <Route path="social-media" />

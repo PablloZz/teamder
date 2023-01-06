@@ -1,0 +1,98 @@
+i {
+  cursor: pointer;
+  color: #f2f2f2;
+}
+
+.postContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 7%, 8%);
+  margin-bottom: 30px;
+  border-radius: 15px;
+  padding: 10px;
+  border: 1px solid hsl(0, 4%, 15%);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.post-author-info {
+  display: flex;
+  align-items: center;
+}
+
+.postContainer .userImg {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.postContainer .name {
+  font-weight: 700;
+  font-size: 1rem;
+  line-height: 22px;
+  color: #f2f2f2;
+}
+
+.body,
+.footer {
+  padding: 0 30px;
+  width: 100%;
+}
+
+.post-description {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 117.8%;
+  color: #f2f2f2;
+}
+
+.postImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 15px 0 25px 0;
+}
+
+.likes span {
+  margin-right: 5px;
+}
+
+.likes i:last-child {
+  margin-left: 30px;
+}
+
+.comment-form {
+  padding: 15px 0 10px 0;
+}
+
+.footer {
+  margin-top: 20px;
+}
+
+.comments .comment {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.comments .comment-author-info {
+  display: flex;
+  align-items: center;
+}
+
+.comments .comment-author-info p {
+  margin-left: 10px;
+}
+
+.comments .commentImg {
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+}

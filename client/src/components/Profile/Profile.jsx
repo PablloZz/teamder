@@ -1,11 +1,12 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import styles from "./Profile.module.css"
+import { Loader } from "../../UI/loader/Loader"
+import styles from "./profile.module.css"
 import ProfileFooter from "./ProfileFooter/ProfileFooter"
 
 const Profile = props => {
   if (!props.userData) {
-    return <p>Loading...</p>
+    return <Loader />
   }
 
   return (

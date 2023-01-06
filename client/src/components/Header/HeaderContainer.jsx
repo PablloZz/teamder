@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import Header from "./Header"
 import { setAuthUserData, setUserProfile } from "../../redux/auth-reducer"
-import styles from "./Header.module.css"
 import { useCallback } from "react"
 
 const HeaderDataContainer = props => {

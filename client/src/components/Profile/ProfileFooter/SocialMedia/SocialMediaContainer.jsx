@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { setAuthUserData } from '../../../../redux/auth-reducer'
-import SocialMedia from './SocialMedia'
+import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setAuthUserData } from "../../../../redux/auth-reducer"
+import SocialMedia from "./SocialMedia"
 
 function SocialMediaContainer() {
   const dispatch = useDispatch()
-  const { socialMedia } = useSelector(state => state.auth)
-  
+  const { socialMedia } = useSelector((state) => state.auth)
+
   const [mediaUrl, setMediaUrl] = useState("")
-  
-  const postMedia = event => {
+
+  function postMedia(event) {
     event.preventDefault()
 
     fetch("/addsocialmedia", {
@@ -20,15 +20,22 @@ function SocialMediaContainer() {
       },
       body: JSON.stringify({ url: mediaUrl }),
     })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data)
+      .then((res) => res.json())
+      .then((data) => {
         localStorage.setItem("user", JSON.stringify(data))
         dispatch(setAuthUserData(data))
         setMediaUrl("")
       })
   }
-  return <SocialMedia handlePostMedia={postMedia} url={mediaUrl} setUrl={setMediaUrl} socialMedia={socialMedia} />
+
+  return (
+    <SocialMedia
+      postMedia={postMedia}
+      url={mediaUrl}
+      setUrl={setMediaUrl}
+      socialMedia={socialMedia}
+    />
+  )
 }
 
 export default SocialMediaContainer

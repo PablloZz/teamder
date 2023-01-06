@@ -1,32 +1,29 @@
-import React from "react"
+import { Loader } from "../../../../UI/loader/Loader"
+import styles from "./socialMedia.module.css"
+import { Input } from "../../../../UI/input/Input"
+import { Button } from "../../../../UI/button/Button"
 
 function SocialMedia(props) {
-  if(!props.socialMedia) {
-    return <p>Loading...</p>
+  console.log(props)
+  if (!props.socialMedia) {
+    return <Loader />
   }
 
   return (
     <div>
-      <form
-        onSubmit={props.handlePostMedia}
-        style={{
-          display: "flex",
-          width: "60%",
-          justifyContent: "space-between",
-          paddingBottom: "16px",
-          marginBottom: "16px",
-          borderBottom: "1px solid #3A444C"
-        }}
-      >
-        <input value={props.url} onChange={e => props.setUrl(e.target.value)} />
-        <button style={{ marginLeft: "16px" }}>Add Media</button>
+      <form onSubmit={props.postMedia} className={styles.form}>
+        <Input
+          value={props.url}
+          onChange={(e) => props.setUrl(e.target.value)}
+        />
+        <Button>Add Media</Button>
       </form>
       <div>
-        {props.socialMedia.map(media => {
-          return (
-            <p key={media._id} style={{marginBottom: "16px"}}>{media.url}</p>
-          )
-        })}
+        {props.socialMedia.map((media) => (
+          <p key={media._id} className={styles.media}>
+            {media.url}
+          </p>
+        ))}
       </div>
     </div>
   )

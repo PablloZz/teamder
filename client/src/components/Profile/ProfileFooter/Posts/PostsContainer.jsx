@@ -7,13 +7,33 @@ import {
 import { useDispatch, useSelector } from "react-redux"
 import Posts from "./Posts"
 import { useEffect } from "react"
+import { usePostPhoto } from "../../../../hooks/usePostPhoto"
+import { useLikePost } from "../../../../hooks/useLikePost"
+import { useUnlikePost } from "../../../../hooks/useUnlikePost"
+import { usePostComment } from "../../../../hooks/usePostComment"
+import { useDeleteComment } from "../../../../hooks/useDeleteComment"
+import { useDeletePost } from "../../../../hooks/useDeletePost"
 
 const PostsContainer = () => {
   const dispatch = useDispatch()
 
+  const { posts } = useSelector(state => state.profilePage)
+  const { _id } = useSelector(state => state.auth)
+
+  const [likePost] = useLikePost()
+  const [unlikePost] = useUnlikePost()
+  const [postComment] = usePostComment()
+  const [deleteComment] = useDeleteComment()
+  const [deletePost] = useDeletePost()
+  const [showComment, setShowComment] = useState(false)
+
+  function toggleComment() {
+    setShowComment(prevShowComment => !prevShowComment)
+  }
+
   const { currentPostText } = useSelector(state => state.profilePage)
-  const [file, setFile] = useState("")
-  const [url, setUrl] = useState("")
+  const [url, postPhoto] = usePostPhoto()
+  const [picture, setPicture] = useState("")
 
   useEffect(() => {
     fetch("/myposts", {
@@ -48,32 +68,31 @@ const PostsContainer = () => {
     //eslint-disable-next-line
   }, [url])
 
-  const sendData = () => {
-    const data = new FormData()
-    data.append("file", file)
-    data.append("upload_preset", "teamder")
-    data.append("cloud_name", "dn4hb36zi")
-
-    fetch("https://api.cloudinary.com/v1_1/dn4hb36zi/image/upload", {
-      method: "post",
-      body: data,
-    })
-      .then(res => res.json())
-      .then(data => setUrl(data.url))
-      .catch(err => console.log(err))
+  function changePostTextHandler(text) {
+    dispatch(changePostText(text))
   }
 
-  const changePostTextHandler = text => dispatch(changePostText(text))
+  function changeFileHandler(picture) {
+    setPicture(picture)
+  }
 
-  const changeFileHandler = file => setFile(file)
-
-  
   return (
     <Posts
-      currentText={currentPostText}
-      changePostText={changePostTextHandler}
-      changeFile={changeFileHandler}
-      addPost={sendData}
+      createPost={{
+        currentText: currentPostText,
+        changePostText: changePostTextHandler,
+        changeFile: changeFileHandler,
+        addPost: () => postPhoto(picture)
+      }}
+      posts={posts}
+      userId={_id}
+      likePost={likePost}
+      unlikePost={unlikePost}
+      postComment={postComment}
+      deleteComment={deleteComment}
+      deletePost={deletePost}
+      showComment={showComment}
+      toggleComment={toggleComment}
     />
   )
 }

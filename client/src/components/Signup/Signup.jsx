@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import styles from "./Signup.module.css"
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
+import { Button } from "../../UI/button/Button"
+import { Input } from "../../UI/input/Input"
 
 function Signup() {
   const navigate = useNavigate()
@@ -23,10 +25,10 @@ function Signup() {
     // eslint-disable-next-line
   }, [url])
 
-  const formChangeHandler = event => {
+  const formChangeHandler = (event) => {
     const { name, value, files, type } = event.target
 
-    setFormData(prevFormData => {
+    setFormData((prevFormData) => {
       return {
         ...prevFormData,
         [name]: type === "file" ? files[0] : value,
@@ -34,7 +36,7 @@ function Signup() {
     })
   }
 
-  const postPicture = picture => {
+  const postPicture = (picture) => {
     const data = new FormData()
     data.append("file", picture)
     data.append("upload_preset", "teamder")
@@ -44,8 +46,8 @@ function Signup() {
       method: "post",
       body: data,
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setUrl(data.secure_url)
       })
   }
@@ -71,24 +73,24 @@ function Signup() {
           password: formData.password,
           city: formData.city,
           age: formData.age,
-          photo: url
+          photo: url,
         }),
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.error) {
             return console.log(data)
           }
           console.log(data)
           navigate("/signin")
         })
-        .catch(err => console.log(err))
+        .catch((err) => console.log(err))
     } else {
       console.log("Invalid email")
     }
   }
 
-  const registerUser = event => {
+  const registerUser = (event) => {
     event.preventDefault()
 
     if (formData.picture) {
@@ -122,7 +124,7 @@ function Signup() {
             />
           </div>
           <div>
-            <input
+            <Input
               type="text"
               name="email"
               placeholder="E-mail"
@@ -131,14 +133,14 @@ function Signup() {
             />
           </div>
           <div className={styles.inputGroup}>
-            <input
+            <Input
               type="text"
               name="name"
               placeholder="Name"
               value={formData.name}
               onChange={formChangeHandler}
             />
-            <input
+            <Input
               type="text"
               name="surname"
               placeholder="Surname"
@@ -147,7 +149,7 @@ function Signup() {
             />
           </div>
           <div>
-            <input
+            <Input
               type="password"
               name="password"
               placeholder="Password"
@@ -156,14 +158,14 @@ function Signup() {
             />
           </div>
           <div className={styles.inputGroup}>
-            <input
+            <Input
               type="text"
               name="city"
               placeholder="City"
               value={formData.city}
               onChange={formChangeHandler}
             />
-            <input
+            <Input
               type="text"
               name="age"
               placeholder="Age"
@@ -173,16 +175,14 @@ function Signup() {
           </div>
           <div>
             <label htmlFor="picture">Upload your photo</label>
-            <input
+            <Input
               type="file"
               name="picture"
               id="picture"
               onChange={formChangeHandler}
             />
           </div>
-          <button onClick={e => registerUser(e)} className={styles.button}>
-            Continue
-          </button>
+          <Button onClick={(e) => registerUser(e)}>Continue</Button>
           <div className={styles.signinAccount}>
             <p>You already have an account?</p>&nbsp;&nbsp;&nbsp;
             <a href="/signin">Sign in</a>

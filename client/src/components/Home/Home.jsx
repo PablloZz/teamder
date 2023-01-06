@@ -1,10 +1,16 @@
 import React from "react"
-import styles from "./Home.module.css"
+import styles from "./home.module.css"
+import { Loader } from "../../UI/loader/Loader"
+import { Post } from "../../UI/post/Post"
 
-const Home = (props) => {
+const Home = props => {
+  if (!props.posts) {
+    return <Loader />
+  }
+
   return (
-    <main className={styles.main}>
-      Home
+    <main className="main">
+      <Post {...props} />
     </main>
   )
 }

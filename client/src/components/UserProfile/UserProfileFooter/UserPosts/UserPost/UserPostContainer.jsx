@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setUserPosts } from "../../../../../redux/profilePageReducer"
-import UserPost from "./UserPost"
+import { Post } from "../../../../../UI/post/Post"
 
 function UserPostContainer() {
   const dispatch = useDispatch()
@@ -122,7 +122,7 @@ function UserPostContainer() {
   }
   return (
     <div>
-      <UserPost
+      <Post
         showComment={showComment}
         userId={_id}
         posts={posts}

@@ -40,35 +40,11 @@
   color: #F2F2F2;
 }
 
-.signinForm input {
-  width: 100%;
-  font-weight: 400;
-  font-size: 0.6rem;
-  line-height: 19px;
-  margin-bottom: 15px;
-  padding-bottom: 5px;
-
-  display: flex;
-  align-items: center;
-  letter-spacing: 0.15px;
-
-  color: #F2F2F2 !important;
-  background: transparent;
-  border-bottom: 1px solid rgba(147, 147, 147, 0.42);
-}
-
-.signinForm .inputGroup {
-  display: flex;
-}
-
-.signinForm .inputGroup > :last-child {
-  margin-left: 15px;
-}
-
 .passwordDetailsBlock {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  margin-bottom: 1.8em;
 }
 
 .passwordDetailsBlock p {
@@ -94,19 +70,6 @@
   color: #BDBDBD;
 }
 
-.signinForm button {
-  margin: 1.8em 0 1.1em 0;
-  width: 100%;
-  text-align: center;
-  background: #FFB800;
-  border-radius: 5px;
-  font-weight: 700;
-  font-size: clamp(10px, 2.7vw, 14px);
-  line-height: 23px;
-
-  color: #000000;
-}
-
 .createAccount {
   width: 100%;
   display: flex;
@@ -115,6 +78,7 @@
   font-weight: 400;
   font-size: 0.6rem;
   line-height: 21px;
+  margin-top: 1.1em;
 
   color: #BDBDBD;
 }
@@ -122,23 +86,6 @@
 .createAccount a {
   color: #FFB800;
   text-decoration: underline;
-}
-
-.button {
-  background: #FFB800;
-  color: #000000;
-  border-radius: 4px;
-  padding: 6px 16px;
-  margin-right: 1em;
-
-  font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 117.8%;
-  text-align: center;
-  width: 90px;
-
-
-  cursor: pointer;
 }
 
 @media screen and (max-width: 800px) {

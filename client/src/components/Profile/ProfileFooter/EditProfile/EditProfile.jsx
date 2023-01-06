@@ -1,34 +1,29 @@
-import React from "react"
+import { Loader } from "../../../../UI/loader/Loader"
+import styles from "./editProfile.module.css"
+import { Input } from "../../../../UI/input/Input"
+import { Button } from "../../../../UI/button/Button"
 
 function EditProfile(props) {
+  if (!props) {
+    return <Loader />
+  }
+
   return (
     <>
       <form onSubmit={props.updateData}>
         <div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
+          <div className={styles.inputGroup}>
             <label htmlFor="picture">Change Picture:</label>
-            <input
+            <Input
               type="file"
               id="picture"
               name="picture"
               onChange={props.changeInfoHandler}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
+          <div className={styles.inputGroup}>
             <label htmlFor="login">Change Login:</label>
-            <input
+            <Input
               type="text"
               id="login"
               name="login"
@@ -36,15 +31,9 @@ function EditProfile(props) {
               onChange={props.changeInfoHandler}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
+          <div className={styles.inputGroup}>
             <label htmlFor="email">Change Email:</label>
-            <input
+            <Input
               type="text"
               id="email"
               name="email"
@@ -52,15 +41,9 @@ function EditProfile(props) {
               onChange={props.changeInfoHandler}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
+          <div className={styles.inputGroup}>
             <label htmlFor="name">Change Name:</label>
-            <input
+            <Input
               type="text"
               id="name"
               name="name"
@@ -68,15 +51,9 @@ function EditProfile(props) {
               onChange={props.changeInfoHandler}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
+          <div className={styles.inputGroup}>
             <label htmlFor="surname">Change Surname:</label>
-            <input
+            <Input
               type="text"
               id="surname"
               name="surname"
@@ -84,15 +61,9 @@ function EditProfile(props) {
               onChange={props.changeInfoHandler}
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              marginBottom: "15px",
-            }}
-          >
+          <div className={styles.inputGroup}>
             <label htmlFor="city">Change city:</label>
-            <input
+            <Input
               type="text"
               id="city"
               name="city"
@@ -101,16 +72,9 @@ function EditProfile(props) {
             />
           </div>
         </div>
-        <button>Update Profile</button>
+        <Button>Update Profile</Button>
       </form>
-      <div
-        style={{
-          width: "60%",
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "15px",
-        }}
-      >
+      <div className={styles.deleteAccount}>
         <label htmlFor="delete-account">Delte Account:</label>
         <i
           className="fa-solid fa-person-circle-minus"

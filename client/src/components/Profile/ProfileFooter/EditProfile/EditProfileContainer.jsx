@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from "react-redux"
 import { deleteUser, setAuthUserData } from "../../../../redux/auth-reducer"
 import EditProfile from "./EditProfile"
 import { useNavigate } from "react-router-dom"
+import { usePostPhoto } from "../../../../hooks/usePostPhoto"
 
 function EditProfileContainer() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { _id } = useSelector(
-    state => state.auth
-  )
+  const { _id } = useSelector((state) => state.auth)
+  const [url, postPhoto] = usePostPhoto()
 
   const [changeInfo, setChangeInfo] = useState({
     login: "",
@@ -22,7 +22,6 @@ function EditProfileContainer() {
     age: "",
     picture: "",
   })
-  const [url, setUrl] = useState("")
 
   useEffect(() => {
     if (url) {
@@ -30,10 +29,10 @@ function EditProfileContainer() {
     }
   }, [url])
 
-  const changeInfoHandler = event => {
+  function changeInfoHandler(event) {
     const { name, value, files, type } = event.target
 
-    setChangeInfo(prevChangeInfo => {
+    setChangeInfo((prevChangeInfo) => {
       return {
         ...prevChangeInfo,
         [name]: type === "file" ? files[0] : value,
@@ -41,22 +40,7 @@ function EditProfileContainer() {
     })
   }
 
-  const postPhoto = () => {
-    const data = new FormData()
-    data.append("file", changeInfo.picture)
-    data.append("upload_preset", "teamder")
-    data.append("cloud_name", "dn4hb36zi")
-    fetch("https://api.cloudinary.com/v1_1/dn4hb36zi/upload", {
-      method: "post",
-      body: data,
-    })
-      .then(res => res.json())
-      .then(data => {
-        setUrl(data.secure_url)
-      })
-  }
-
-  const sendUpdatedData = (requsetType, dataType, data) => {
+  function sendUpdatedData(requsetType, dataType, data) {
     const url = `/changeprofile${requsetType}`
     fetch(url, {
       method: "put",
@@ -66,18 +50,19 @@ function EditProfileContainer() {
       },
       body: JSON.stringify({ [dataType]: data }),
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         localStorage.setItem("user", JSON.stringify(data))
         dispatch(setAuthUserData(data))
       })
   }
 
-  const updateData = event => {
+  function updateData(event) {
+    // Improve the logic later
     event.preventDefault()
 
     if (changeInfo.picture) {
-      postPhoto()
+      postPhoto(changeInfo.picture)
     }
     if (changeInfo.login) {
       sendUpdatedData("login", "login", changeInfo.login)
@@ -102,7 +87,7 @@ function EditProfileContainer() {
     }
   }
 
-  const deleteAccount = () => {
+  function deleteAccount() {
     fetch(`/deleteaccount/${_id}`, {
       method: "delete",
       headers: {
@@ -110,12 +95,12 @@ function EditProfileContainer() {
         "Content-Type": "application/json",
       },
     })
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         dispatch(deleteUser())
         localStorage.clear()
       })
-      navigate("/signup")
+    navigate("/signup")
   }
 
   return (

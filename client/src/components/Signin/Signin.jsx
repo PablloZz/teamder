@@ -3,17 +3,20 @@ import styles from "./Signin.module.css"
 import { NavLink, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import { setAuthUserData } from "../../redux/auth-reducer"
+import { Button } from "../../UI/button/Button"
+import { Input } from "../../UI/input/Input"
+import LinkButton from "../../UI/button/LinkButton"
 
 function Signin() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const [formData, setFormData] = useState({email: "", password: ""})
+  const [formData, setFormData] = useState({ email: "", password: "" })
 
-  const formChangeHandler = event => {
+  const formChangeHandler = (event) => {
     const { name, value } = event.target
 
-    setFormData(prevFormData => {
+    setFormData((prevFormData) => {
       return {
         ...prevFormData,
         [name]: value,
@@ -21,7 +24,7 @@ function Signin() {
     })
   }
 
-  const signIn = e => {
+  const signIn = (e) => {
     e.preventDefault()
     if (
       String(formData.email)
@@ -35,10 +38,13 @@ function Signin() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: formData.email, password: formData.password }),
+        body: JSON.stringify({
+          email: formData.email,
+          password: formData.password,
+        }),
       })
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.error) {
             return console.log(data)
           }
@@ -60,7 +66,7 @@ function Signin() {
         <form className={styles.signinForm}>
           <h2>Welcome, login to your account</h2>
           <div>
-            <input
+            <Input
               type="text"
               name="email"
               placeholder="E-mail"
@@ -69,9 +75,9 @@ function Signin() {
             />
           </div>
           <div>
-            <input
-              type="password"
+            <Input
               name="password"
+              type="password"
               placeholder="Password"
               value={formData.password}
               onChange={formChangeHandler}
@@ -84,9 +90,7 @@ function Signin() {
             </p>
             <NavLink to="/">Forgot password?</NavLink>
           </div>
-          <button onClick={e => signIn(e)} className={styles.button}>
-            Continue
-          </button>
+          <Button onClick={(e) => signIn(e)}>Continue</Button>
           <div className={styles.createAccount}>
             <p>Don't have an account yet?</p>&nbsp;&nbsp;&nbsp;
             <a href="/signup">Sign up</a>

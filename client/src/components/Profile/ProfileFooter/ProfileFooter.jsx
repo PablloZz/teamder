@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import EditProfileContainer from './EditProfile/EditProfileContainer'
 import PostsContainer from './Posts/PostsContainer'
-import styles from "./ProfileFooter.module.css"
+import styles from "./profileFooter.module.css"
 import SocialMediaContainer from './SocialMedia/SocialMediaContainer'
 
 function ProfileFooter() {

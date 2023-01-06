@@ -1,0 +1,14 @@
+.inputGroup, .deleteAccount {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.deleteAccount {
+  margin-top: 20px;
+  width: max-content;
+}
+
+.deleteAccount > i {
+  margin-left: 15px;
+}

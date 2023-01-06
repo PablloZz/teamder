@@ -1,21 +1,22 @@
 import React from "react"
-import PostContainer from "./Post/PostContainer"
-import styles from "./Posts.module.css"
+import { Button } from "../../../../UI/button/Button"
+import { Loader } from "../../../../UI/loader/Loader"
+import Textarea from "../../../../UI/textarea/Textarea"
+import styles from "./posts.module.css"
+import { Post } from "../../../../UI/post/Post"
 
-function Posts(props) {
-  const onChangePostText = text => props.changePostText(text)
-
-  const onAddPost = () => props.addPost()
-
-  const onFileChange = file => props.changeFile(file)
+function Posts({ createPost, ...props }) {
+  if (!props.posts) {
+    return <Loader />
+  }
 
   return (
     <div className={styles.postsContainerSize}>
       <div className={styles.addPost}>
         <h2 className={styles.postsHeader}>Add Post</h2>
-        <textarea
-          value={props.currentText}
-          onChange={e => onChangePostText(e.target.value)}
+        <Textarea
+          value={createPost.currentText}
+          onChange={e => createPost.changePostText(e.target.value)}
         />
         <div>
           <label htmlFor="selectFile" className={styles.fileLabel}>
@@ -24,13 +25,15 @@ function Posts(props) {
           <input
             type="file"
             id="selectFile"
-            onChange={e => onFileChange(e.target.files[0])}
+            onChange={e => createPost.changeFile(e.target.files[0])}
           />
         </div>
-        <button onClick={onAddPost}>Add post</button>
+        <div className={styles.buttonContainer}>
+          <Button onClick={createPost.addPost}>Add post</Button>
+        </div>
       </div>
       <div>
-        <PostContainer />
+        <Post {...props} />
       </div>
     </div>
   )

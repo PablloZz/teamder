@@ -1,12 +1,12 @@
 import {
+  danger,
+  fail,
   type GitHubMergeRef,
   type GitHubPRDSL as LibraryGitHubDSL,
   type GitHubRepo,
-  danger,
-  fail,
-} from 'danger';
+} from "danger";
 
-import { ProjectPrefix } from './project.config';
+import { ProjectPrefix } from "./project.config";
 
 type GitHubPRDSL = LibraryGitHubDSL & {
   head: GitHubMergeRef & {
@@ -19,11 +19,11 @@ type GitHubPRDSL = LibraryGitHubDSL & {
   project_id: string | null;
 };
 
-const REGEX_ENVIRONMENTS_TYPES = ProjectPrefix.ENVIRONMENTS.join('|');
+const REGEX_ENVIRONMENTS_TYPES = ProjectPrefix.ENVIRONMENTS.join("|");
 
 const BranchPrefix = {
-  TASK: 'task',
-  FIX: 'fix',
+  TASK: "task",
+  FIX: "fix",
 } as const;
 
 const DangerConfig = {
@@ -48,7 +48,7 @@ const DangerConfig = {
   BRANCH: {
     IS_REQUIRED: true,
     PATTERN: new RegExp(
-      `^((${Object.values(BranchPrefix).join('|')})/(${
+      `^((${Object.values(BranchPrefix).join("|")})/(${
         ProjectPrefix.APP
       })-[0-9]{1,6})-[a-zA-Z0-9-]+$|(${REGEX_ENVIRONMENTS_TYPES})$`,
     ),
@@ -61,7 +61,7 @@ const checkAssignees = (): void => {
   const hasAssignees = Boolean(pr.assignee);
 
   if (!hasAssignees) {
-    fail('This pull request should have at least one assignee.');
+    fail("This pull request should have at least one assignee.");
   }
 };
 
@@ -81,7 +81,7 @@ const checkProjects = (): void => {
   const { has_projects: hasProjects } = pr.head.repo;
 
   if (!hasProjects) {
-    fail('This pull request should be linked to a project.');
+    fail("This pull request should be linked to a project.");
   }
 };
 
@@ -89,7 +89,7 @@ const checkMilestone = (): void => {
   const hasMilestone = Boolean(pr.milestone);
 
   if (!hasMilestone) {
-    fail('This pull request should have a milestone.');
+    fail("This pull request should have a milestone.");
   }
 };
 
@@ -97,7 +97,7 @@ const checkLabels = (): void => {
   const hasLabels = pr.labels.length > 0;
 
   if (!hasLabels) {
-    fail('This pull request should have at least one label.');
+    fail("This pull request should have at least one label.");
   }
 };
 

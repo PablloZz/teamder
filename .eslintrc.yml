@@ -86,7 +86,7 @@ rules:
     - always
   "@typescript-eslint/quotes":
     - error
-    - single
+    - double
   "@typescript-eslint/consistent-type-imports":
     - error
   "@typescript-eslint/consistent-type-exports":

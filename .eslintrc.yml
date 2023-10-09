@@ -50,7 +50,11 @@ rules:
   curly:
     - error
     - all
+  unicorn/no-array-reduce:
+    - off
   unicorn/no-null:
+    - off
+  no-extra-boolean-cast:
     - off
   "@typescript-eslint/padding-line-between-statements":
     - error
@@ -77,6 +81,8 @@ rules:
     - count: 1
   import/no-default-export:
     - error
+  unicorn/explicit-length-check:
+    - off
   "@typescript-eslint/consistent-type-definitions":
     - off
   "@typescript-eslint/non-nullable-type-assertion-style":
@@ -113,6 +119,7 @@ overrides:
       "import/no-default-export":
         - off
   - files:
+      - commitlint.config.ts
       - dangerfile.ts
     rules:
       import/extensions:

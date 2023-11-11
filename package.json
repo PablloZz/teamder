@@ -14,9 +14,8 @@
     "lint:fs": "ls-lint",
     "lint:type": "npm run lint:type --workspaces --if-present",
     "lint:js": "npm run lint:js --workspaces --if-present -- --max-warnings=0",
-    "lint:css": "npm run lint:css --workspaces --if-present",
     "lint:prettify": "prettier --check \"**/*.{ts,tsx,json,md,scss,html}\"",
-    "lint": "npm run lint:editor && npm run lint:fs && npm run lint:prettify && npm run lint:type && npm run lint:js && npm run lint:css",
+    "lint": "npm run lint:editor && npm run lint:fs && npm run lint:prettify && npm run lint:type && npm run lint:js",
     "prettify": "prettier --write \"**/*.{ts,tsx,json,md,scss,html}\""
   },
   "simple-git-hooks": {
@@ -38,9 +37,6 @@
     "lint-staged": "14.0.1",
     "prettier": "3.0.3",
     "simple-git-hooks": "2.9.0",
-    "stylelint": "15.10.3",
-    "stylelint-config-standard": "34.0.0",
-    "stylelint-order": "6.0.3",
     "tsc-alias": "1.8.8",
     "typescript": "5.2.2"
   }

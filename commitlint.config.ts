@@ -17,8 +17,8 @@ Where:
   - <modifier>: ${COMMIT_MODIFIERS.join(", ")}
   - <environment>: ${ProjectPrefix.ENVIRONMENTS.join(", ")}
 Examples:
-  - wr-5: + articles feed page
-  - wr-12: * create article form
+  - tm-5: + articles feed page
+  - tm-12: * create article form
   - production: - comments in ui/ux homework`;
 
 const configuration: UserConfig = {

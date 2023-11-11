@@ -6,6 +6,8 @@ on:
       - development
       - production
 
+  workflow_dispatch:
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -26,6 +28,7 @@ jobs:
       - name: Install Dependencies
         run: |
           npm install
+
       - name: Code Linting
         run: |
           npm run lint

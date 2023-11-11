@@ -25,6 +25,10 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Install specific version of npm
+        run: |
+          npm install -g npm@9.7.2
+
       - name: Install Dependencies
         run: |
           npm ci --include=dev

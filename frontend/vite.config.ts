@@ -8,7 +8,6 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
     VITE_APP_API_ORIGIN_URL,
     VITE_APP_DEVELOPMENT_PORT,
   } = loadEnv(mode, process.cwd());
-
   return defineConfig({
     build: {
       outDir: "build",

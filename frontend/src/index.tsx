@@ -8,7 +8,7 @@ import { AppRoute } from "@/enums/enums.js";
 import { store } from "@/packages/store/store.js";
 import { Auth } from "~/pages/auth/auth.js";
 
-createRoot(document.querySelector("root") as HTMLElement).render(
+createRoot(document.querySelector("#root") as HTMLElement).render(
   <StrictMode>
     <StoreProvider store={store.instance}>
       <RouterProvider

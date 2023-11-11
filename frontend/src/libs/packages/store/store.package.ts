@@ -3,7 +3,7 @@ import {
   type MiddlewareArray,
   type ThunkMiddleware,
 } from "@reduxjs/toolkit";
-import { configureStore } from "@reduxjs/toolkit/dist/configureStore.js";
+import { configureStore } from "@reduxjs/toolkit";
 
 import { AppEnvironment } from "@/enums/enums.js";
 import { type IConfig } from "@/packages/config/config.js";

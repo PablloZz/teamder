@@ -22,7 +22,7 @@ type GitHubPRDSL = LibraryGitHubDSL & {
 const REGEX_ENVIRONMENTS_TYPES = ProjectPrefix.ENVIRONMENTS.join("|");
 
 const BranchPrefix = {
-  TASK: "task",
+  FEATURE: "feature",
   FIX: "fix",
 } as const;
 

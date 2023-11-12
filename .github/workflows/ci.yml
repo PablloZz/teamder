@@ -27,7 +27,7 @@ jobs:
 
       - name: Install npm
         run: |
-          npm install -g npm@10.2.3
+          npm install -g npm@9.7.2
 
       - name: Install Dependencies
         run: |

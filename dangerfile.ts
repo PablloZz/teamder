@@ -40,7 +40,7 @@ const DangerConfig = {
     IS_REQUIRED: true,
   },
   MILESTONE: {
-    IS_REQUIRED: true,
+    IS_REQUIRED: false,
   },
   LABELS: {
     IS_REQUIRED: true,

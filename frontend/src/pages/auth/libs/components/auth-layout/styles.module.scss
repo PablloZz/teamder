@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.background,
+.formWrapper {
+  width: 960px;
+}
+
+.background {
+  height: auto;
+  object-fit: cover;
+}
+
+.formWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--black);
+}

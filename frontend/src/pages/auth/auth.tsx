@@ -3,7 +3,11 @@ import { useAppDispatch, useCallback, useLocation } from "@/hooks/hooks.js";
 import { type UserSignUpRequestDto } from "#/users/users.js";
 import { actions as authActions } from "~/slices/auth/auth.js";
 
-import { SignInForm, SignUpForm } from "./libs/components/components.js";
+import {
+  AuthLayout,
+  SignInForm,
+  SignUpForm,
+} from "./libs/components/components.js";
 
 const Auth: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -31,7 +35,11 @@ const Auth: React.FC = () => {
     return null;
   };
 
-  return <>{getLayout(pathname)}</>;
+  return (
+    <>
+      <AuthLayout>{getLayout(pathname)}</AuthLayout>
+    </>
+  );
 };
 
 export { Auth };

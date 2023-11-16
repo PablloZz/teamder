@@ -5,7 +5,12 @@ import {
   type FieldValues,
 } from "react-hook-form";
 
+import { type InputType } from "@/enums/enums.js";
+import { getValidClassNames } from "@/helpers/helpers.js";
 import { useFormController } from "@/hooks/hooks.js";
+import { type ValueOf } from "@/types/types.js";
+
+import styles from "./styles.module.scss";
 
 type Properties<T extends FieldValues> = {
   control: Control<T, null>;
@@ -13,7 +18,10 @@ type Properties<T extends FieldValues> = {
   label: string;
   name: FieldPath<T>;
   placeholder?: string;
-  type?: "text" | "email";
+  type?: ValueOf<typeof InputType>;
+  className?: string;
+  labelClassName?: string;
+  showLabel?: boolean;
 };
 
 const Input = <T extends FieldValues>({
@@ -23,6 +31,9 @@ const Input = <T extends FieldValues>({
   name,
   placeholder = "",
   type = "text",
+  className,
+  labelClassName,
+  showLabel = false,
 }: Properties<T>): JSX.Element => {
   const { field } = useFormController<T>({ name, control });
 
@@ -31,8 +42,15 @@ const Input = <T extends FieldValues>({
 
   return (
     <label>
-      <span>{label}</span>
-      <input {...field} type={type} placeholder={placeholder} />
+      <span className={showLabel ? labelClassName : "visually-hidden"}>
+        {label}
+      </span>
+      <input
+        {...field}
+        type={type}
+        placeholder={placeholder}
+        className={getValidClassNames(styles.input, className)}
+      />
       {hasError && <span>{error as string}</span>}
     </label>
   );

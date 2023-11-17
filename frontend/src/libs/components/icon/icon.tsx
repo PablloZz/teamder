@@ -12,3 +12,4 @@ const Icon: React.FC<Properties> = ({ iconName, className }) => {
 };
 
 export { Icon };
+export { type IconName } from "./common.js";

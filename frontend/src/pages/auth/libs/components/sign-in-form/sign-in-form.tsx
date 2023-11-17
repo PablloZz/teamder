@@ -1,5 +1,3 @@
-import { Button } from "@/components/components.js";
-
 type Properties = {
   onSubmit: () => void;
 };
@@ -7,9 +5,7 @@ type Properties = {
 const SignInForm: React.FC<Properties> = () => (
   <>
     <h1>Sign In</h1>
-    <form>
-      <Button label="Sign in" />
-    </form>
+    <form></form>
   </>
 );
 

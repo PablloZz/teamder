@@ -1,0 +1,15 @@
+.wrapper {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(-50%, 50%);
+  color: var(--white);
+}
+
+.passwordInput {
+  padding-right: 50px;
+}

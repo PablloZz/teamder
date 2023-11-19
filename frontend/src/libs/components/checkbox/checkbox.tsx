@@ -5,10 +5,8 @@ import {
   type FieldValues,
 } from "react-hook-form";
 
-import { type InputType } from "@/enums/enums.js";
 import { getValidClassNames } from "@/helpers/helpers.js";
 import { useFormController } from "@/hooks/hooks.js";
-import { type ValueOf } from "@/types/types.js";
 
 import styles from "./styles.module.scss";
 
@@ -18,22 +16,21 @@ type Properties<T extends FieldValues> = {
   label: string;
   name: FieldPath<T>;
   placeholder?: string;
-  type?: ValueOf<typeof InputType>;
   className?: string;
   labelClassName?: string;
+  wrapperClassName?: string;
   showLabel?: boolean;
 };
 
-const Input = <T extends FieldValues>({
+const Checkbox = <T extends FieldValues>({
   control,
   errors,
   label,
   name,
-  placeholder = "",
-  type = "text",
   className,
   labelClassName,
-  showLabel = false,
+  wrapperClassName,
+  showLabel,
 }: Properties<T>): JSX.Element => {
   const { field } = useFormController<T>({ name, control });
 
@@ -42,19 +39,26 @@ const Input = <T extends FieldValues>({
 
   return (
     <label>
-      <span className={showLabel ? labelClassName : "visually-hidden"}>
-        {label}
-      </span>
-      <input
-        {...field}
-        type={type}
-        placeholder={placeholder}
-        className={getValidClassNames(styles.input, className)}
-      />
+      <div className={getValidClassNames(styles.wrapper, wrapperClassName)}>
+        <input
+          {...field}
+          type="checkbox"
+          checked={field.value}
+          className={getValidClassNames(styles.checkbox, className)}
+        />
+        <span
+          className={
+            showLabel
+              ? getValidClassNames(styles.label, labelClassName)
+              : "visually-hidden"
+          }
+        >
+          {label}
+        </span>
+      </div>
       {hasError && <span>{error as string}</span>}
     </label>
   );
 };
 
-export { Input };
-export { type Properties as InputProperties };
+export { Checkbox };

@@ -1,7 +1,7 @@
 .input,
 .input::placeholder {
   font-family: Roboto, Arial, "sans-serif";
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: 19px;
@@ -16,7 +16,6 @@
   border: none;
   border-bottom: 1px solid var(--gray-42);
   padding-left: 5px;
-  margin-bottom: 15px;
 }
 
 .input:hover,
@@ -24,4 +23,9 @@
   border-radius: 5px;
   border-bottom: none;
   outline: 1px solid var(--light-gray);
+}
+
+.input::-ms-reveal,
+.input::-ms-clear {
+  display: none;
 }

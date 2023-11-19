@@ -1,5 +1,7 @@
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -11,6 +13,7 @@ body {
   font-size: 14px;
   font-family: Arial, sans-serif;
   line-height: 1.5;
+  background: var(--black);
 }
 
 #root {
@@ -21,13 +24,5 @@ body {
 
 .visually-hidden {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(100%);
+  left: -10000px;
 }

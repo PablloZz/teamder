@@ -5,7 +5,7 @@
 
 .background,
 .formWrapper {
-  width: 960px;
+  width: 50%;
 }
 
 .background {
@@ -15,7 +15,46 @@
 
 .formWrapper {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--black);
+  gap: 50px;
+}
+
+.header {
+  color: var(--white);
+  display: flex;
+  gap: 10px;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+}
+
+.descriptionWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  font-family: Roboto, Arial, "sans-serif";
+  font-size: 48px;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 120%;
+  color: var(--white);
+}
+
+.description {
+  width: 75%;
+  font-family: Roboto, Arial, "sans-serif";
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.8px;
+  padding: 4px 8px;
+  color: var(--black);
+  background: var(--white);
 }

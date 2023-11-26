@@ -1,0 +1,55 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  color: var(--light-gray);
+  font-family: Roboto, Arial, "sans-serif";
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0.15px;
+  margin: 35px 0;
+}
+
+.interestsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.signUpButton {
+  height: 45px;
+  font-weight: 700;
+  margin: 30px 0 45px 0;
+  font-family: Roboto, Arial, "sans-serif";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.signInDescription {
+  font-family: Roboto, Arial, "sans-serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--gainsboro-gray);
+  text-align: center;
+}
+
+.signInLink {
+  color: var(--orange);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.signInLink:hover {
+  color: var(--dark-orange);
+}

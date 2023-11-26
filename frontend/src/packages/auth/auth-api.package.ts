@@ -3,7 +3,7 @@ import { HttpApi } from "@/packages/api/api.js";
 import { type IHttp } from "@/packages/http/http.js";
 import { type IStorage } from "@/packages/storage/storage.js";
 import {
-  type UserSignUpRequestDto,
+  type UserSignUpBasic,
   type UserSignUpResponseDto,
 } from "#/users/users.js";
 
@@ -21,7 +21,7 @@ class AuthApi extends HttpApi {
   }
 
   public async signUp(
-    payload: UserSignUpRequestDto,
+    payload: UserSignUpBasic,
   ): Promise<UserSignUpResponseDto> {
     const response = await this.load(
       this.getFullEndpoint(AuthApiPath.SIGN_UP, {}),

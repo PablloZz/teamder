@@ -2,7 +2,7 @@ import { type IService } from "@/interfaces/interfaces.js";
 
 import {
   type UserGetAllResponseDto,
-  type UserSignUpRequestDto,
+  type UserSignUpBasic,
   type UserSignUpResponseDto,
 } from "./libs/types/types.js";
 import { UserEntity } from "./user.entity.js";
@@ -26,7 +26,7 @@ class UserService implements IService {
   }
 
   public async create(
-    payload: UserSignUpRequestDto,
+    payload: UserSignUpBasic,
   ): Promise<UserSignUpResponseDto> {
     const user = await this.userRepository.create(
       UserEntity.initializeNew({

@@ -16,6 +16,34 @@ body {
   background: var(--black);
 }
 
+ul,
+ol {
+  list-style-type: none;
+}
+
+/* Hide default Edge password icon from password inputs */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
+
+/* Hide default arrows from number inputs */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* Enable placeholder color in Firefox */
+input::-moz-placeholder {
+  opacity: 1;
+}
+
 #root {
   display: flex;
   flex-grow: 1;
@@ -25,4 +53,22 @@ body {
 .visually-hidden {
   position: absolute;
   left: -10000px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--gray);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gray-70);
+  border-radius: 16px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray-42);
 }

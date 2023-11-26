@@ -1,0 +1,40 @@
+.progressWrapper {
+  width: 100%;
+  height: 45px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.progressWrapper::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--orange);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.progressWrapper > span {
+  width: 45px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  background: var(--black);
+  font-family: Manrope, Arial, "sans-serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border: 2px solid var(--orange);
+  border-radius: 50%;
+  z-index: var(--z-index-level-one);
+}
+
+.progressWrapper > span.filled {
+  color: var(--black);
+  background: var(--orange);
+}

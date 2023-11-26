@@ -11,11 +11,12 @@
 
 .input {
   width: 100%;
-  height: 45px;
+  min-height: 45px;
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--gray-42);
   padding-left: 5px;
+  margin-bottom: 15px;
 }
 
 .input:hover,
@@ -25,7 +26,7 @@
   outline: 1px solid var(--light-gray);
 }
 
-.input::-ms-reveal,
-.input::-ms-clear {
-  display: none;
+.textarea {
+  padding: 5px;
+  resize: none;
 }

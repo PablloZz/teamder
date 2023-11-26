@@ -15,7 +15,9 @@ export {
   type UserGetAllResponseDto,
   type UserGetResponseDto,
   type UserSignInRequestDto,
-  type UserSignUpRequestDto,
+  type UserSignUpAdditionalInfo,
+  type UserSignUpBasic,
+  type UserSignUpInterests,
   type UserSignUpResponseDto,
 } from "./libs/types/types.js";
 export {

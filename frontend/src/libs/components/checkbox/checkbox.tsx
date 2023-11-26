@@ -7,7 +7,9 @@ import {
 
 import { getValidClassNames } from "@/helpers/helpers.js";
 import { useFormController } from "@/hooks/hooks.js";
+import { type ValueOf } from "@/types/types.js";
 
+import { type CheckboxStyle } from "./libs/enums/enums.js";
 import styles from "./styles.module.scss";
 
 type Properties<T extends FieldValues> = {
@@ -20,6 +22,7 @@ type Properties<T extends FieldValues> = {
   labelClassName?: string;
   wrapperClassName?: string;
   showLabel?: boolean;
+  checkboxStyle: ValueOf<typeof CheckboxStyle>;
 };
 
 const Checkbox = <T extends FieldValues>({
@@ -31,6 +34,7 @@ const Checkbox = <T extends FieldValues>({
   labelClassName,
   wrapperClassName,
   showLabel,
+  checkboxStyle,
 }: Properties<T>): JSX.Element => {
   const { field } = useFormController<T>({ name, control });
 
@@ -44,7 +48,11 @@ const Checkbox = <T extends FieldValues>({
           {...field}
           type="checkbox"
           checked={field.value}
-          className={getValidClassNames(styles.checkbox, className)}
+          className={getValidClassNames(
+            styles.checkbox,
+            styles[checkboxStyle],
+            className,
+          )}
         />
         <span
           className={

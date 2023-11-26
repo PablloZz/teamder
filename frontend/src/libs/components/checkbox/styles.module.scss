@@ -3,6 +3,7 @@
   align-items: center;
   gap: 10px;
   cursor: pointer;
+  user-select: none;
 }
 
 .label {
@@ -20,14 +21,45 @@
   -o-appearance: none;
   -ms-appearance: none;
   appearance: none;
+  cursor: pointer;
+}
+
+/* Square */
+.checkbox.square {
+  position: relative;
+  width: 25px;
+  height: 25px;
+  border: 2px solid var(--dusty-gray);
+  border-radius: 4px;
+  background: var(--black);
+  padding: 9px;
+}
+
+.checkbox.square:checked {
+  background: var(--blue);
+  border: none;
+}
+
+.checkbox.square:checked::after {
+  content: "\2714";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--black);
+}
+
+/* Circle */
+.checkbox.circle {
   width: 20px;
   height: 20px;
   background: var(--light-blue);
   border: 1px solid var(--gray);
   border-radius: 16px;
-  cursor: pointer;
 }
 
-.checkbox:checked {
+.checkbox.circle:checked {
   background: var(--orange);
 }

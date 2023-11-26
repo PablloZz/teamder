@@ -22,6 +22,7 @@ type Properties<T extends FieldValues> = {
   className?: string;
   labelClassName?: string;
   showLabel?: boolean;
+  rows?: number;
 };
 
 const Input = <T extends FieldValues>({
@@ -34,6 +35,7 @@ const Input = <T extends FieldValues>({
   className,
   labelClassName,
   showLabel = false,
+  rows,
 }: Properties<T>): JSX.Element => {
   const { field } = useFormController<T>({ name, control });
 
@@ -45,12 +47,24 @@ const Input = <T extends FieldValues>({
       <span className={showLabel ? labelClassName : "visually-hidden"}>
         {label}
       </span>
-      <input
-        {...field}
-        type={type}
-        placeholder={placeholder}
-        className={getValidClassNames(styles.input, className)}
-      />
+      {rows ? (
+        <textarea
+          placeholder={placeholder}
+          rows={rows}
+          className={getValidClassNames(
+            styles.input,
+            rows && styles.textarea,
+            className,
+          )}
+        ></textarea>
+      ) : (
+        <input
+          {...field}
+          type={type}
+          placeholder={placeholder}
+          className={getValidClassNames(styles.input, className)}
+        />
+      )}
       {hasError && <span>{error as string}</span>}
     </label>
   );

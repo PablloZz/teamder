@@ -6,8 +6,8 @@ import {
   userSignInValidationSchema,
 } from "#/users/users.js";
 
+import { DEFAULT_SIGN_IN_PAYLOAD } from "../../constants/constants.js";
 import { PasswordInput } from "../components.js";
-import { DEFAULT_SIGN_IN_PAYLOAD } from "./libs/constants/constants.js";
 import styles from "./styles.module.scss";
 
 type Properties = {
@@ -39,13 +39,14 @@ const SignInForm: React.FC<Properties> = () => {
           control={control}
           errors={errors}
         />
-        <div className={styles.details}>
+        <div className={styles.signInControls}>
           <Checkbox
             name="rememberMe"
             label="Remember me"
             showLabel
             control={control}
             errors={errors}
+            checkboxStyle="circle"
           />
           <Link to={AppRoute.FORGOT_PASSWORD} className={styles.forgotPassword}>
             Forgot Password?
@@ -57,8 +58,11 @@ const SignInForm: React.FC<Properties> = () => {
         className={styles.signInButton}
         onClick={(): void => {}}
       />
-      <div className={styles.createAccountDescription}>
-        Don&apos;t have an account yet?&nbsp;<span>Sign up!</span>
+      <div className={styles.signUpDescription}>
+        Don&apos;t have an account yet?&nbsp;
+        <Link to={AppRoute.SIGN_UP} className={styles.signUpLink}>
+          Sign Up!
+        </Link>
       </div>
     </form>
   );

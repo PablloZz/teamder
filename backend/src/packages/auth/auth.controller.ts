@@ -6,7 +6,7 @@ import {
 } from "@/packages/controller/controller.js";
 import { HttpCode } from "@/packages/http/http.js";
 import { type ILogger } from "@/packages/logger/logger.js";
-import { type UserSignUpRequestDto } from "#/users/users.js";
+import { type UserSignUpBasic } from "#/users/users.js";
 import { userSignUpValidationSchema } from "#/users/users.js";
 
 import { type AuthService } from "./auth.service.js";
@@ -27,9 +27,7 @@ class AuthController extends Controller {
         body: userSignUpValidationSchema,
       },
       handler: (options) =>
-        this.signUp(
-          options as ApiHandlerOptions<{ body: UserSignUpRequestDto }>,
-        ),
+        this.signUp(options as ApiHandlerOptions<{ body: UserSignUpBasic }>),
     });
   }
 
@@ -64,7 +62,7 @@ class AuthController extends Controller {
    *                   $ref: "#/components/schemas/User"
    */
   private async signUp(
-    options: ApiHandlerOptions<{ body: UserSignUpRequestDto }>,
+    options: ApiHandlerOptions<{ body: UserSignUpBasic }>,
   ): Promise<ApiHandlerResponse> {
     return {
       status: HttpCode.CREATED,

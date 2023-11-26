@@ -11,55 +11,36 @@
   font-weight: 400;
   line-height: 38px;
   letter-spacing: 0.15px;
-  margin-bottom: 35px;
+  margin: 35px 0;
 }
 
-.signInControls {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.forgotPassword {
-  color: var(--gainsboro-gray);
-  transition: color 0.2s ease;
-}
-
-.forgotPassword:hover {
-  color: var(--gray-42);
-}
-
-.signInButton {
+.signUpButton {
   height: 45px;
   font-weight: 700;
-  margin: 45px 0;
+  margin: 30px 0 45px 0;
   font-family: Roboto, Arial, "sans-serif";
   font-size: 18px;
   font-weight: 700;
   line-height: normal;
+  text-transform: uppercase;
 }
 
-.signUpDescription {
-  color: var(--gainsboro-gray);
-  text-align: center;
-}
-
-.forgotPassword,
-.signUpDescription {
+.signInDescription {
   font-family: Roboto, Arial, "sans-serif";
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: var(--gainsboro-gray);
+  text-align: center;
 }
 
-.signUpLink {
+.signInLink {
   color: var(--orange);
   text-decoration: underline;
   transition: color 0.2s ease;
 }
 
-.signUpLink:hover {
+.signInLink:hover {
   color: var(--dark-orange);
 }

@@ -1,10 +1,9 @@
-import { RouterOutlet } from "@/components/components.js";
+import { RouterOutlet, Sidebar } from "@/components/components.js";
 
 const App: React.FC = () => (
   <>
-    <div>
-      <RouterOutlet />
-    </div>
+    <Sidebar />
+    <RouterOutlet />
   </>
 );
 

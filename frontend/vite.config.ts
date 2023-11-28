@@ -1,7 +1,7 @@
 import reactPlugin from "@vitejs/plugin-react";
 import { type ConfigEnv, defineConfig, loadEnv } from "vite";
-import tsconfigPathsPlugin from "vite-tsconfig-paths";
 import svgr from "vite-plugin-svgr";
+import tsconfigPathsPlugin from "vite-tsconfig-paths";
 
 const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
   const {
@@ -9,6 +9,7 @@ const config = ({ mode }: ConfigEnv): ReturnType<typeof defineConfig> => {
     VITE_APP_API_ORIGIN_URL,
     VITE_APP_DEVELOPMENT_PORT,
   } = loadEnv(mode, process.cwd());
+
   return defineConfig({
     build: {
       outDir: "build",

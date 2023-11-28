@@ -5,6 +5,9 @@ const AppRoute = {
   SIGN_UP_ADDITIONAL_INFO: "/sign-up/additional-info",
   SIGN_UP_INTERESTS: "/sign-up/interests",
   FORGOT_PASSWORD: "/sign-up/forgot-password",
+  TEAMS: "teams",
+  NOTIFICATIONS: "notifications",
+  PROFILE: "profile",
 } as const;
 
 export { AppRoute };

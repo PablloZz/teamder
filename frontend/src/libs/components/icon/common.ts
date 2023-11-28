@@ -11,7 +11,6 @@ import Info from "~/assets/icons/info.icon.svg?react";
 import Instagram from "~/assets/icons/instagram.icon.svg?react";
 import Like from "~/assets/icons/like.icon.svg?react";
 import Location from "~/assets/icons/location.icon.svg?react";
-import Logout from "~/assets/icons/logout.icon.svg?react";
 import Members from "~/assets/icons/members.icon.svg?react";
 import MembersFilled from "~/assets/icons/members-filled.icon.svg?react";
 import Notifications from "~/assets/icons/notifications.icon.svg?react";
@@ -19,6 +18,7 @@ import Profile from "~/assets/icons/profile.icon.svg?react";
 import RelatedInterests from "~/assets/icons/related-interests.icon.svg?react";
 import RelatedInterestsFilled from "~/assets/icons/related-interests-filled.icon.svg?react";
 import Show from "~/assets/icons/show.icon.svg?react";
+import SignOut from "~/assets/icons/sign-out.icon.svg?react";
 import TeamderLogo from "~/assets/icons/teamder-logo.icon.svg?react";
 import Teams from "~/assets/icons/teams.icon.svg?react";
 import Twitter from "~/assets/icons/twitter.icon.svg?react";
@@ -37,7 +37,6 @@ type IconName =
   | "instagram"
   | "like"
   | "location"
-  | "logout"
   | "members"
   | "membersFilled"
   | "notifications"
@@ -45,6 +44,7 @@ type IconName =
   | "relatedInterests"
   | "relatedInterestsFilled"
   | "show"
+  | "signOut"
   | "teamderLogo"
   | "teams"
   | "twitter";
@@ -66,7 +66,6 @@ const iconNameToIcon: Record<
   instagram: Instagram,
   like: Like,
   location: Location,
-  logout: Logout,
   members: Members,
   membersFilled: MembersFilled,
   notifications: Notifications,
@@ -74,6 +73,7 @@ const iconNameToIcon: Record<
   relatedInterests: RelatedInterests,
   relatedInterestsFilled: RelatedInterestsFilled,
   show: Show,
+  signOut: SignOut,
   teamderLogo: TeamderLogo,
   teams: Teams,
   twitter: Twitter,

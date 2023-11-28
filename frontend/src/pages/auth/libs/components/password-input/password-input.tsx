@@ -23,7 +23,7 @@ const PasswordInput = <T extends FieldValues>(
     <div className={styles.wrapper}>
       <IconButton
         iconName={isPasswordVisible ? "hide" : "show"}
-        iconClassName={styles.icon}
+        buttonClassName={styles.button}
         onClick={handleShowPassword}
       />
       <Input

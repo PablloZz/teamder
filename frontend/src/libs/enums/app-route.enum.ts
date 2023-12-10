@@ -7,7 +7,7 @@ const AppRoute = {
   FORGOT_PASSWORD: "/sign-up/forgot-password",
   TEAMS: "teams",
   NOTIFICATIONS: "notifications",
-  PROFILE: "profile",
+  PROFILE_$ID: "profile/:id",
 } as const;
 
 export { AppRoute };

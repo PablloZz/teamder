@@ -1,11 +1,13 @@
-header {
+.header {
   position: fixed;
   top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 295px;
+  width: var(--sidebar-width);
   padding: 25px 50px 35px 50px;
+  border-right: 1px solid var(--dark-gray);
 }
 
 .sidebarHeader {
@@ -31,36 +33,36 @@ header {
   text-transform: uppercase;
 }
 
-ul {
+.list {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-li {
-  display: flex;
-  align-items: center;
-  gap: 20px;
+.listItem {
   cursor: pointer;
 }
 
-.listItemIcon,
 .listItemTitle {
-  color: var(--light-gray);
-  transition: color 0.2s ease;
-}
-
-li:hover :is(.listItemIcon, .listItemTitle) {
-  color: var(--orange);
-}
-
-.listItemTitle {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   font-family: var(--roboto);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.3px;
+}
+
+.listItemTitle,
+.listItemIcon {
+  color: var(--light-gray);
+  transition: color 0.2s ease;
+}
+
+li:hover :is(.listItemTitle, .listItemIcon) {
+  color: var(--orange);
 }
 
 .createTeamButton {
@@ -92,4 +94,5 @@ li:hover :is(.listItemIcon, .listItemTitle) {
   line-height: 24px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  border-radius: 5px;
 }

@@ -8,6 +8,7 @@
   --light-gray: #f2f2f2;
   --gainsboro-gray: #bdbdbd;
   --dusty-gray: #d1d1d1;
+  --dark-gray: #3a444c;
   --gray-42: rgba(147, 147, 147, 0.42);
   --gray-70: rgba(147, 147, 147, 0.7);
   --orange: #ffb800;
@@ -19,4 +20,7 @@
   /* Fonts */
   --roboto: Roboto, Arial, "sans-serif";
   --manrope: Manrope, Arial, "sans-serif";
+
+  /* Dimensions */
+  --sidebar-width: 295px;
 }

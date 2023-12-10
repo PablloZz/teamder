@@ -21,6 +21,10 @@ ol {
   list-style-type: none;
 }
 
+fieldset {
+  border: none;
+}
+
 /* Hide default Edge password icon from password inputs */
 input::-ms-reveal,
 input::-ms-clear {

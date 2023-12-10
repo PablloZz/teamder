@@ -19,9 +19,9 @@ const SignUpBasicForm: React.FC = () => {
 
   return (
     <form>
-      <div className={styles.wrapper}>
-        <SignUpProgress step={SignUpProgressStep.FIRST} />
-        <h2 className={styles.header}>Basic Information</h2>
+      <SignUpProgress step={SignUpProgressStep.FIRST} />
+      <fieldset className={styles.wrapper}>
+        <legend className={styles.header}>Basic Information</legend>
         <Input
           name="login"
           type="text"
@@ -81,7 +81,7 @@ const SignUpBasicForm: React.FC = () => {
             errors={errors}
           />
         </div>
-      </div>
+      </fieldset>
       <Button
         label="Continue"
         className={styles.signUpButton}

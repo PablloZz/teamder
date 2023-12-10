@@ -24,10 +24,10 @@ const SignUpInterestsForm: React.FC<Properties> = () => {
 
   return (
     <form>
-      <div className={styles.wrapper}>
-        <SignUpProgress step={SignUpProgressStep.THIRD} />
-        <h2 className={styles.header}>Interests</h2>
-        <ul className={styles.interestsWrapper}>
+      <SignUpProgress step={SignUpProgressStep.THIRD} />
+      <fieldset className={styles.wrapper}>
+        <legend className={styles.header}>Interests</legend>
+        <ul className={styles.interests}>
           {(
             Object.keys(
               DEFAULT_SIGN_UP_INTERESTS_PAYLOAD,
@@ -47,7 +47,7 @@ const SignUpInterestsForm: React.FC<Properties> = () => {
             );
           })}
         </ul>
-      </div>
+      </fieldset>
       <Button
         label="Sign Up"
         className={styles.signUpButton}

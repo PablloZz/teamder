@@ -19,9 +19,9 @@ const SignUpAdditionalInfoForm: React.FC = () => {
 
   return (
     <form>
-      <div className={styles.wrapper}>
-        <SignUpProgress step={SignUpProgressStep.SECOND} />
-        <h2 className={styles.header}>Additional Information</h2>
+      <SignUpProgress step={SignUpProgressStep.SECOND} />
+      <fieldset className={styles.wrapper}>
+        <legend className={styles.header}>Additional Information</legend>
         <Input
           name="bio"
           type="text"
@@ -55,7 +55,7 @@ const SignUpAdditionalInfoForm: React.FC = () => {
           control={control}
           errors={errors}
         />
-      </div>
+      </fieldset>
       <Button
         label="Continue"
         className={styles.signUpButton}

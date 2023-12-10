@@ -22,8 +22,10 @@ const SignInForm: React.FC<Properties> = () => {
 
   return (
     <form>
-      <div className={styles.wrapper}>
-        <h2 className={styles.header}>Welcome, login to your account!</h2>
+      <fieldset>
+        <legend className={styles.header}>
+          Welcome, login to your account!
+        </legend>
         <Input
           name="email"
           type="email"
@@ -39,19 +41,19 @@ const SignInForm: React.FC<Properties> = () => {
           control={control}
           errors={errors}
         />
-        <div className={styles.signInControls}>
-          <Checkbox
-            name="rememberMe"
-            label="Remember me"
-            showLabel
-            control={control}
-            errors={errors}
-            checkboxStyle="circle"
-          />
-          <Link to={AppRoute.FORGOT_PASSWORD} className={styles.forgotPassword}>
-            Forgot Password?
-          </Link>
-        </div>
+      </fieldset>
+      <div className={styles.signInControls}>
+        <Checkbox
+          name="rememberMe"
+          label="Remember me"
+          showLabel
+          control={control}
+          errors={errors}
+          checkboxStyle="circle"
+        />
+        <Link to={AppRoute.FORGOT_PASSWORD} className={styles.forgotPassword}>
+          Forgot Password?
+        </Link>
       </div>
       <Button
         label="Sign in"

@@ -49,9 +49,8 @@ input::-moz-placeholder {
 }
 
 #root {
-  display: flex;
   flex-grow: 1;
-  flex-direction: column;
+  display: flex;
 }
 
 .visually-hidden {

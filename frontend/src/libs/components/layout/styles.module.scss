@@ -1,0 +1,42 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  height: 100vh;
+  margin-left: var(--sidebar-width);
+  border-right: var(--dark-gray-border-1);
+  overflow: hidden;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--black);
+  padding: 20px 25px 20px 30px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.title {
+  font-weight: 700;
+  line-height: 38px;
+  letter-spacing: -1.35px;
+}
+
+.backButton,
+.title {
+  color: var(--light-gray);
+  font-family: var(--manrope);
+  font-size: 30px;
+  font-style: normal;
+}

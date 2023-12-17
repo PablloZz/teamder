@@ -2,6 +2,7 @@
   /* Colors */
   --black: #000000;
   --white: #ffffff;
+  --light-yellow-87: rgba(255, 255, 255, 0.87);
   --blue: #007dff;
   --light-blue: #f7fafc;
   --gray: #373737;
@@ -23,4 +24,7 @@
 
   /* Dimensions */
   --sidebar-width: 295px;
+
+  /* Borders */
+  --dark-gray-border-1: 1px solid var(--dark-gray);
 }

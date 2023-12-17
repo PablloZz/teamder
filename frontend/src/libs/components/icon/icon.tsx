@@ -4,14 +4,14 @@ type Properties = {
   iconName: IconName;
   className?: string;
   ariaLabel?: string;
-  ariaRole?: "img";
+  ariaRole?: "img" | "none";
 };
 
 const Icon: React.FC<Properties> = ({
   iconName,
   className,
-  ariaLabel,
-  ariaRole,
+  ariaLabel = "",
+  ariaRole = "none",
 }) => {
   const SvgIcon = iconNameToIcon[iconName];
 

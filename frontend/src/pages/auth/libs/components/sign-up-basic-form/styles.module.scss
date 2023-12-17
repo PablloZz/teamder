@@ -28,6 +28,10 @@
   flex: 1 1 100%;
 }
 
+.wrapper > :nth-child(6) > :last-child {
+  width: unset;
+}
+
 .signUpButton {
   height: 45px;
   font-weight: 700;

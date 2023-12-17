@@ -5,33 +5,49 @@ import styles from "./styles.module.scss";
 
 const Sidebar: React.FC = () => (
   <header className={styles.header}>
-    <div className={styles.sidebarHeader}>
+    <h1 className={styles.title}>
       <Icon iconName="teamderLogo" className={styles.logo} />
-      <h1 className={styles.title}>Teamder</h1>
-    </div>
+      Teamder
+    </h1>
     <nav>
       {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-      <ul role="list" className={styles.list}>
+      <ul role="list" className={styles.navigationList}>
         <li className={styles.listItem}>
-          <Link to={AppRoute.ROOT} className={styles.listItemTitle}>
+          <Link
+            to={AppRoute.ROOT}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
             <Icon iconName="home" className={styles.listItemIcon} />
             Home
           </Link>
         </li>
         <li className={styles.listItem}>
-          <Link to={AppRoute.TEAMS} className={styles.listItemTitle}>
+          <Link
+            to={AppRoute.TEAMS}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
             <Icon iconName="teams" className={styles.listItemIcon} />
             Teams
           </Link>
         </li>
         <li className={styles.listItem}>
-          <Link to={AppRoute.NOTIFICATIONS} className={styles.listItemTitle}>
+          <Link
+            to={AppRoute.NOTIFICATIONS}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
             <Icon iconName="notifications" className={styles.listItemIcon} />
             Notifications
           </Link>
         </li>
         <li className={styles.listItem}>
-          <Link to={AppRoute.PROFILE_$ID} className={styles.listItemTitle}>
+          <Link
+            to={AppRoute.PROFILE_$ID}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
             <Icon iconName="profile" className={styles.listItemIcon} />
             Profile
           </Link>

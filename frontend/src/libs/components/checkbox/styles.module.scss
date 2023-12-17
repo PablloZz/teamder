@@ -2,8 +2,6 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;
-  user-select: none;
 }
 
 .label {
@@ -16,16 +14,12 @@
 }
 
 .checkbox {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  -ms-appearance: none;
   appearance: none;
   cursor: pointer;
 }
 
 /* Square */
-.checkbox.square {
+.square {
   position: relative;
   width: 25px;
   height: 25px;
@@ -35,12 +29,12 @@
   padding: 9px;
 }
 
-.checkbox.square:checked {
+.square:checked {
   background: var(--blue);
   border: none;
 }
 
-.checkbox.square:checked::after {
+.square:checked::after {
   content: "\2714";
   position: absolute;
   left: 50%;
@@ -52,7 +46,7 @@
 }
 
 /* Circle */
-.checkbox.circle {
+.circle {
   width: 20px;
   height: 20px;
   background: var(--light-blue);
@@ -60,6 +54,11 @@
   border-radius: 16px;
 }
 
-.checkbox.circle:checked {
+.circle:checked {
   background: var(--orange);
+}
+
+/* Hidden checkbox */
+.wrapper.checkboxHidden > .checkbox {
+  display: none;
 }

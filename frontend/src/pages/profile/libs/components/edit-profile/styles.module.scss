@@ -1,0 +1,48 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0 25px 0 30px;
+}
+
+.wrapper > fieldset {
+  padding: 20px;
+  border: var(--dark-gray-border-1);
+}
+
+.wrapper > fieldset > :nth-child(4),
+.wrapper > fieldset > :nth-child(6) {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.wrapper > fieldset > :nth-child(4) > * {
+  flex-grow: 1;
+}
+
+.wrapper > fieldset > :nth-child(6) > :first-child {
+  flex: 1 1 100%;
+}
+
+.wrapper > fieldset > :nth-child(6) > :last-child {
+  flex: 1 1 50%;
+}
+
+.confirmButton {
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 30px;
+  color: var(--black);
+  font-family: var(--manrope);
+  font-family: var(--roboto);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 117.8%;
+}

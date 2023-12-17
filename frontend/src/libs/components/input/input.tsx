@@ -43,12 +43,13 @@ const Input = <T extends FieldValues>({
   const hasError = Boolean(error);
 
   return (
-    <label>
+    <label className={styles.label}>
       <span className={showLabel ? labelClassName : "visually-hidden"}>
         {label}
       </span>
       {rows ? (
         <textarea
+          {...field}
           placeholder={placeholder}
           rows={rows}
           className={getValidClassNames(

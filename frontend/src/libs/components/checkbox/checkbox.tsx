@@ -1,28 +1,20 @@
-import {
-  type Control,
-  type FieldErrors,
-  type FieldPath,
-  type FieldValues,
-} from "react-hook-form";
+import { type FieldValues } from "react-hook-form";
 
 import { getValidClassNames } from "@/helpers/helpers.js";
 import { useFormController } from "@/hooks/hooks.js";
-import { type ValueOf } from "@/types/types.js";
 
-import { type CheckboxStyle } from "./libs/enums/enums.js";
+import {
+  type CheckboxStyle,
+  type InputProperties,
+} from "./libs/types/types.js";
 import styles from "./styles.module.scss";
 
-type Properties<T extends FieldValues> = {
-  control: Control<T, null>;
-  errors: FieldErrors<T>;
-  label: string;
-  name: FieldPath<T>;
-  placeholder?: string;
-  className?: string;
-  labelClassName?: string;
-  wrapperClassName?: string;
-  showLabel?: boolean;
-  checkboxStyle: ValueOf<typeof CheckboxStyle>;
+type Properties<T extends FieldValues> = Omit<
+  InputProperties<T>,
+  "type" | "rows"
+> & {
+  checkboxStyle: CheckboxStyle;
+  showCheckbox?: boolean;
 };
 
 const Checkbox = <T extends FieldValues>({
@@ -32,9 +24,9 @@ const Checkbox = <T extends FieldValues>({
   name,
   className,
   labelClassName,
-  wrapperClassName,
   showLabel,
   checkboxStyle,
+  showCheckbox,
 }: Properties<T>): JSX.Element => {
   const { field } = useFormController<T>({ name, control });
 
@@ -43,7 +35,12 @@ const Checkbox = <T extends FieldValues>({
 
   return (
     <label>
-      <div className={getValidClassNames(styles.wrapper, wrapperClassName)}>
+      <div
+        className={getValidClassNames(
+          styles.wrapper,
+          !showCheckbox && styles.checkboxHidden,
+        )}
+      >
         <input
           {...field}
           type="checkbox"

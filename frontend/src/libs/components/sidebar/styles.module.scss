@@ -1,26 +1,19 @@
-header {
+.header {
   position: fixed;
   top: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  width: 295px;
+  width: var(--sidebar-width);
   padding: 25px 50px 35px 50px;
-}
-
-.sidebarHeader {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 60px;
-}
-
-.logo {
-  width: 30px;
-  height: 30px;
+  border-right: var(--dark-gray-border-1);
 }
 
 .title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--white);
   font-family: var(--roboto);
   font-size: 30px;
@@ -29,38 +22,42 @@ header {
   line-height: 38px;
   letter-spacing: -1.35px;
   text-transform: uppercase;
+  margin-bottom: 60px;
 }
 
-ul {
+.logo {
+  width: 30px;
+  height: 30px;
+}
+
+.navigationList {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-li {
+.listItemLink {
   display: flex;
   align-items: center;
   gap: 20px;
-  cursor: pointer;
-}
-
-.listItemIcon,
-.listItemTitle {
-  color: var(--light-gray);
-  transition: color 0.2s ease;
-}
-
-li:hover :is(.listItemIcon, .listItemTitle) {
-  color: var(--orange);
-}
-
-.listItemTitle {
   font-family: var(--roboto);
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   letter-spacing: -0.3px;
+}
+
+.listItemLink,
+.listItemIcon {
+  color: var(--light-gray);
+  transition: color 0.2s ease;
+}
+
+.listItem:is(:hover, :focus-within) :is(.listItemLink, .listItemIcon),
+.activeListItemLink,
+.listItemLink.activeListItemLink > .listItemIcon {
+  color: var(--orange);
 }
 
 .createTeamButton {
@@ -92,4 +89,5 @@ li:hover :is(.listItemIcon, .listItemTitle) {
   line-height: 24px;
   letter-spacing: 0.4px;
   text-transform: uppercase;
+  border-radius: 5px;
 }

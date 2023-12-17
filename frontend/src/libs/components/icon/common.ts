@@ -19,6 +19,7 @@ import RelatedInterests from "~/assets/icons/related-interests.icon.svg?react";
 import RelatedInterestsFilled from "~/assets/icons/related-interests-filled.icon.svg?react";
 import Show from "~/assets/icons/show.icon.svg?react";
 import SignOut from "~/assets/icons/sign-out.icon.svg?react";
+import SocialMedia from "~/assets/icons/social-media.icon.svg?react";
 import TeamderLogo from "~/assets/icons/teamder-logo.icon.svg?react";
 import Teams from "~/assets/icons/teams.icon.svg?react";
 import Twitter from "~/assets/icons/twitter.icon.svg?react";
@@ -45,6 +46,7 @@ type IconName =
   | "relatedInterestsFilled"
   | "show"
   | "signOut"
+  | "socialMedia"
   | "teamderLogo"
   | "teams"
   | "twitter";
@@ -74,6 +76,7 @@ const iconNameToIcon: Record<
   relatedInterestsFilled: RelatedInterestsFilled,
   show: Show,
   signOut: SignOut,
+  socialMedia: SocialMedia,
   teamderLogo: TeamderLogo,
   teams: Teams,
   twitter: Twitter,

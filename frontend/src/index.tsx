@@ -7,6 +7,12 @@ import { App, RouterProvider, StoreProvider } from "@/components/components.js";
 import { AppRoute } from "@/enums/enums.js";
 import { store } from "@/packages/store/store.js";
 import { Auth } from "~/pages/auth/auth.js";
+import {
+  EditProfile,
+  Interests,
+  Profile,
+  SocialMedia,
+} from "~/pages/profile/profile.js";
 
 createRoot(document.querySelector("#root") as HTMLElement).render(
   <StrictMode>
@@ -22,6 +28,24 @@ createRoot(document.querySelector("#root") as HTMLElement).render(
               { path: AppRoute.SIGN_UP, element: <Auth /> },
               { path: AppRoute.SIGN_UP_ADDITIONAL_INFO, element: <Auth /> },
               { path: AppRoute.SIGN_UP_INTERESTS, element: <Auth /> },
+              {
+                path: AppRoute.PROFILE_$ID,
+                element: <Profile />,
+                children: [
+                  {
+                    path: AppRoute.PROFILE_$ID_INTERESTS,
+                    element: <Interests />,
+                  },
+                  {
+                    path: AppRoute.PROFILE_$ID_SOCIAL_MEDIA,
+                    element: <SocialMedia />,
+                  },
+                  {
+                    path: AppRoute.PROFILE_$ID_EDIT_PROFILE,
+                    element: <EditProfile />,
+                  },
+                ],
+              },
             ],
           },
         ]}

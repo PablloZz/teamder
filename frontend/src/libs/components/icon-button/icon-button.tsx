@@ -8,6 +8,8 @@ type Properties = {
   label?: string;
   iconClassName?: string;
   buttonClassName?: string;
+  iconAriaLabel?: string;
+  iconAriaRole?: "img";
   iconName: IconName;
   onClick:
     | (() => void)
@@ -20,6 +22,8 @@ const IconButton: React.FC<Properties> = ({
   iconClassName,
   buttonClassName,
   onClick,
+  iconAriaLabel,
+  iconAriaRole,
 }) => {
   return (
     <button
@@ -27,7 +31,12 @@ const IconButton: React.FC<Properties> = ({
       className={getValidClassNames(styles.button, buttonClassName)}
       onClick={onClick}
     >
-      <Icon iconName={iconName} className={iconClassName} />
+      <Icon
+        iconName={iconName}
+        className={iconClassName}
+        ariaLabel={iconAriaLabel}
+        ariaRole={iconAriaRole}
+      />
       {label}
     </button>
   );

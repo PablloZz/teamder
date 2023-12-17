@@ -4,35 +4,51 @@ import { Button, Icon, IconButton, Link } from "../components.js";
 import styles from "./styles.module.scss";
 
 const Sidebar: React.FC = () => (
-  <header>
-    <div className={styles.sidebarHeader}>
+  <header className={styles.header}>
+    <h1 className={styles.title}>
       <Icon iconName="teamderLogo" className={styles.logo} />
-      <h1 className={styles.title}>Teamder</h1>
-    </div>
+      Teamder
+    </h1>
     <nav>
       {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
-      <ul role="list">
-        <li>
-          <Icon iconName="home" className={styles.listItemIcon} />
-          <Link to={AppRoute.ROOT} className={styles.listItemTitle}>
+      <ul role="list" className={styles.navigationList}>
+        <li className={styles.listItem}>
+          <Link
+            to={AppRoute.ROOT}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
+            <Icon iconName="home" className={styles.listItemIcon} />
             Home
           </Link>
         </li>
-        <li>
-          <Icon iconName="teams" className={styles.listItemIcon} />
-          <Link to={AppRoute.TEAMS} className={styles.listItemTitle}>
+        <li className={styles.listItem}>
+          <Link
+            to={AppRoute.TEAMS}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
+            <Icon iconName="teams" className={styles.listItemIcon} />
             Teams
           </Link>
         </li>
-        <li>
-          <Icon iconName="notifications" className={styles.listItemIcon} />
-          <Link to={AppRoute.NOTIFICATIONS} className={styles.listItemTitle}>
+        <li className={styles.listItem}>
+          <Link
+            to={AppRoute.NOTIFICATIONS}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
+            <Icon iconName="notifications" className={styles.listItemIcon} />
             Notifications
           </Link>
         </li>
-        <li>
-          <Icon iconName="profile" className={styles.listItemIcon} />
-          <Link to={AppRoute.PROFILE} className={styles.listItemTitle}>
+        <li className={styles.listItem}>
+          <Link
+            to={AppRoute.PROFILE_$ID}
+            className={styles.listItemLink}
+            activeClassName={styles.activeListItemLink}
+          >
+            <Icon iconName="profile" className={styles.listItemIcon} />
             Profile
           </Link>
         </li>

@@ -15,7 +15,7 @@
     "migrate:dev:make": "node --loader ts-paths-esm-loader ../node_modules/knex/bin/cli.js migrate:make -x ts",
     "migrate:dev:down": "node --loader ts-paths-esm-loader ../node_modules/knex/bin/cli.js migrate:down",
     "migrate:dev:rollback": "node --loader ts-paths-esm-loader ../node_modules/knex/bin/cli.js migrate:rollback --all",
-    "build": "tsc && tsx-alias"
+    "build": "tsc && tsc-alias"
   },
   "dependencies": {
     "@fastify/swagger": "8.11.0",

@@ -1,4 +1,4 @@
-import { Button, Input, Link } from "@/components/components.js";
+import { Button, Input, Link, PasswordInput } from "@/components/components.js";
 import { AppRoute } from "@/enums/enums.js";
 import { useAppForm } from "@/hooks/hooks.js";
 import {
@@ -8,7 +8,7 @@ import {
 
 import { DEFAULT_SIGN_UP_BASIC_PAYLOAD } from "../../constants/constants.js";
 import { SignUpProgressStep } from "../../enums/enums.js";
-import { PasswordInput, SignUpProgress } from "../components.js";
+import { SignUpProgress } from "../components.js";
 import styles from "./styles.module.scss";
 
 const SignUpBasicForm: React.FC = () => {
@@ -19,9 +19,9 @@ const SignUpBasicForm: React.FC = () => {
 
   return (
     <form>
-      <div className={styles.wrapper}>
-        <SignUpProgress step={SignUpProgressStep.FIRST} />
-        <h2 className={styles.header}>Basic Information</h2>
+      <SignUpProgress step={SignUpProgressStep.FIRST} />
+      <fieldset className={styles.wrapper}>
+        <legend className={styles.header}>Basic Information</legend>
         <Input
           name="login"
           type="text"
@@ -81,7 +81,7 @@ const SignUpBasicForm: React.FC = () => {
             errors={errors}
           />
         </div>
-      </div>
+      </fieldset>
       <Button
         label="Continue"
         className={styles.signUpButton}

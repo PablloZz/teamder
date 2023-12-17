@@ -1,4 +1,10 @@
-import { Button, Checkbox, Input, Link } from "@/components/components.js";
+import {
+  Button,
+  Checkbox,
+  Input,
+  Link,
+  PasswordInput,
+} from "@/components/components.js";
 import { AppRoute } from "@/enums/enums.js";
 import { useAppForm } from "@/hooks/hooks.js";
 import {
@@ -7,7 +13,6 @@ import {
 } from "#/users/users.js";
 
 import { DEFAULT_SIGN_IN_PAYLOAD } from "../../constants/constants.js";
-import { PasswordInput } from "../components.js";
 import styles from "./styles.module.scss";
 
 type Properties = {
@@ -50,6 +55,7 @@ const SignInForm: React.FC<Properties> = () => {
           control={control}
           errors={errors}
           checkboxStyle="circle"
+          showCheckbox
         />
         <Link to={AppRoute.FORGOT_PASSWORD} className={styles.forgotPassword}>
           Forgot Password?

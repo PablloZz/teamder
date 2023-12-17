@@ -16,6 +16,17 @@ type Properties = {
   onSubmit: () => void;
 };
 
+const MOCKED_INTERESTS: UserSignUpInterests = {
+  sport: false,
+  programming: false,
+  swimming: false,
+  dance: false,
+  bowling: false,
+  traveling: false,
+  singing: false,
+  music: false,
+};
+
 const SignUpInterestsForm: React.FC<Properties> = () => {
   const { control, errors } = useAppForm<UserSignUpInterests>({
     defaultValues: DEFAULT_SIGN_UP_INTERESTS_PAYLOAD,
@@ -27,13 +38,10 @@ const SignUpInterestsForm: React.FC<Properties> = () => {
       <SignUpProgress step={SignUpProgressStep.THIRD} />
       <fieldset className={styles.wrapper}>
         <legend className={styles.header}>Interests</legend>
-        <ul className={styles.interests}>
-          {(
-            Object.keys(
-              DEFAULT_SIGN_UP_INTERESTS_PAYLOAD,
-            ) as (keyof UserSignUpInterests)[]
-          ).map((interest) => {
-            return (
+        {/* eslint-disable-next-line jsx-a11y/no-redundant-roles */}
+        <ul className={styles.interests} role="list">
+          {(Object.keys(MOCKED_INTERESTS) as (keyof UserSignUpInterests)[]).map(
+            (interest) => (
               <li key={interest}>
                 <Checkbox
                   name={interest}
@@ -42,10 +50,11 @@ const SignUpInterestsForm: React.FC<Properties> = () => {
                   label={makeFirstLetterUppercase(interest)}
                   checkboxStyle="square"
                   showLabel
+                  showCheckbox
                 />
               </li>
-            );
-          })}
+            ),
+          )}
         </ul>
       </fieldset>
       <Button

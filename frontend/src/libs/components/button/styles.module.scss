@@ -22,7 +22,7 @@
     transform 0.2s ease;
 }
 
-.button:hover {
+.button:is(:hover, :focus) {
   background: var(--dark-orange);
 }
 

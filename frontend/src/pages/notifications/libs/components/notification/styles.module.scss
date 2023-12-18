@@ -1,0 +1,78 @@
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 25px 20px 30px;
+  border-bottom: var(--dark-gray-border-1);
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.message > strong {
+  font-weight: 700;
+}
+
+.message > span {
+  font-weight: 400;
+}
+
+.message > :is(strong, span) {
+  color: var(--light-gray);
+  font-family: var(--manrope);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 117.8%;
+}
+
+.buttonsWrapper {
+  align-self: flex-end;
+  display: flex;
+  gap: 15px;
+}
+
+.acceptButton {
+  color: var(--black);
+  background: var(--orange);
+}
+
+.deleteButton {
+  color: var(--light-gray);
+  background: var(--black);
+  border: 2px solid var(--orange);
+  border-radius: 4px;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border 0.2s ease;
+}
+
+.deleteButton:is(:hover, :focus) {
+  color: var(--black);
+  background: var(--orange);
+  border: 2px solid var(--orange);
+}
+
+.acceptButton,
+.deleteButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 115px;
+  height: 30px;
+  font-family: var(--manrope);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  line-height: 117.8%;
+}

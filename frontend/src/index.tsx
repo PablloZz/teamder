@@ -7,6 +7,7 @@ import { App, RouterProvider, StoreProvider } from "@/components/components.js";
 import { AppRoute } from "@/enums/enums.js";
 import { store } from "@/packages/store/store.js";
 import { Auth } from "~/pages/auth/auth.js";
+import { Notifications } from "~/pages/notifications/notifications.js";
 import {
   EditProfile,
   Interests,
@@ -46,6 +47,7 @@ createRoot(document.querySelector("#root") as HTMLElement).render(
                   },
                 ],
               },
+              { path: AppRoute.NOTIFICATIONS, element: <Notifications /> },
             ],
           },
         ]}

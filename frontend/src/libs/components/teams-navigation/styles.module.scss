@@ -1,0 +1,32 @@
+.navigation {
+  width: 100%;
+  padding: 15px 25px 15px 30px;
+  border-bottom: var(--dark-gray-border-1);
+}
+
+.navigationList {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+}
+
+.listItemLink {
+  color: var(--light-gray);
+  font-family: var(--manrope);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.15px;
+}
+
+.listItemLink:is(:hover, :focus-within),
+.activeListItemLink {
+  color: var(--orange);
+}
+
+.activeListItemLink {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 20px;
+}

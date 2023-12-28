@@ -17,6 +17,7 @@ import Notifications from "~/assets/icons/notifications.icon.svg?react";
 import Profile from "~/assets/icons/profile.icon.svg?react";
 import RelatedInterests from "~/assets/icons/related-interests.icon.svg?react";
 import RelatedInterestsFilled from "~/assets/icons/related-interests-filled.icon.svg?react";
+import Send from "~/assets/icons/send.icon.svg?react";
 import Show from "~/assets/icons/show.icon.svg?react";
 import SignOut from "~/assets/icons/sign-out.icon.svg?react";
 import SocialMedia from "~/assets/icons/social-media.icon.svg?react";
@@ -44,6 +45,7 @@ type IconName =
   | "profile"
   | "relatedInterests"
   | "relatedInterestsFilled"
+  | "send"
   | "show"
   | "signOut"
   | "socialMedia"
@@ -74,6 +76,7 @@ const iconNameToIcon: Record<
   profile: Profile,
   relatedInterests: RelatedInterests,
   relatedInterestsFilled: RelatedInterestsFilled,
+  send: Send,
   show: Show,
   signOut: SignOut,
   socialMedia: SocialMedia,

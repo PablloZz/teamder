@@ -32,35 +32,35 @@ const UserCard: React.FC = () => (
       </div>
     </div>
     <p className={styles.description}>{MOCKED_USER.description}</p>
-    <div className={styles.details}>
-      <div>
+    <ul className={styles.details}>
+      <li className={styles.detail}>
         <Icon
           iconName="location"
           ariaLabel="Place of residence"
           ariaRole="img"
           className={styles.detailIcon}
         />
-        <span className={styles.detail}>{MOCKED_USER.city}</span>
-      </div>
-      <div>
+        <span className={styles.detailTitle}>{MOCKED_USER.city}</span>
+      </li>
+      <li className={styles.detail}>
         <Icon
           iconName="cake"
           ariaLabel="Age"
           ariaRole="img"
           className={styles.detailIcon}
         />
-        <span className={styles.detail}>{MOCKED_USER.age} y.o.</span>
-      </div>
-      <div>
+        <span className={styles.detailTitle}>{MOCKED_USER.age} y.o.</span>
+      </li>
+      <li className={styles.detail}>
         <Icon
           iconName="like"
           ariaLabel="Like the profile"
           ariaRole="img"
           className={styles.detailIcon}
         />
-        <span className={styles.detail}>{MOCKED_USER.likes}</span>
-      </div>
-    </div>
+        <span className={styles.detailTitle}>{MOCKED_USER.likes}</span>
+      </li>
+    </ul>
   </section>
 );
 

@@ -28,7 +28,7 @@
   letter-spacing: 0.15px;
 }
 
-.listItem:is(:hover, :focus-within) .listItemLink,
+.listItemLink:is(:hover, :focus-within),
 .activeListItemLink {
   color: var(--orange);
 }

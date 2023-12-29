@@ -32,12 +32,12 @@
   gap: 30px;
 }
 
-.details > div {
+.detail {
   gap: 5px;
 }
 
 .details,
-.details > div {
+.detail {
   display: flex;
   align-items: center;
 }
@@ -49,7 +49,7 @@
 .initials,
 .nickname,
 .description,
-.detail {
+.detailTitle {
   color: var(--light-gray);
   font-family: var(--manrope);
   font-style: normal;
@@ -57,13 +57,13 @@
 
 .nickname,
 .description,
-.detail {
+.detailTitle {
   font-size: 16px;
   font-weight: 400;
 }
 
 .initials,
 .nickname,
-.detail {
+.detailTitle {
   line-height: normal;
 }

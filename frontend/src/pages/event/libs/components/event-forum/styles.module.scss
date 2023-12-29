@@ -1,0 +1,70 @@
+.forum {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+  width: 440px;
+  height: 480px;
+  border: var(--dark-gray-border-1);
+}
+
+.messageDetails {
+  display: flex;
+  gap: 10px;
+}
+
+.messageDetails.currentUserMessage {
+  flex-direction: row-reverse;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+}
+
+.messageWrapper {
+  padding: 10px;
+  border: var(--dark-gray-border-2);
+  border-radius: 15px;
+}
+
+.newMessageWrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 60px;
+  max-height: 120px;
+  border-top: var(--dark-gray-border-1);
+}
+
+.messages,
+.newMessageWrapper {
+  padding: 10px 15px 15px;
+}
+
+.newMessage {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  word-break: break-word;
+  overflow: hidden auto;
+  width: 80%;
+  min-height: 40px;
+  max-height: 90px;
+}
+
+.message,
+.newMessage {
+  color: var(--white);
+  text-align: justify;
+  font-family: var(--manrope);
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 117.8%;
+}
+
+.sendIcon {
+  color: var(--light-gray);
+  margin-left: auto;
+}

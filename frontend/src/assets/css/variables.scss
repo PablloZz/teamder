@@ -12,10 +12,12 @@
   --dark-gray: #3a444c;
   --gray-42: rgba(147, 147, 147, 0.42);
   --gray-70: rgba(147, 147, 147, 0.7);
+  --gray-12: #1f1f1f;
   --orange: #ffb800;
   --dark-orange: #b18000;
 
   /* Z-Index*/
+  --negative-z-index: -1;
   --z-index-level-one: 1;
 
   /* Fonts */
@@ -27,4 +29,5 @@
 
   /* Borders */
   --dark-gray-border-1: 1px solid var(--dark-gray);
+  --dark-gray-border-2: 2px solid var(--dark-gray);
 }

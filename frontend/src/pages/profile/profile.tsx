@@ -11,7 +11,7 @@ const Profile: React.FC = () => {
         <UserCard />
         <nav className={styles.navigation}>
           <ul className={styles.navigationList}>
-            <li className={styles.listItem}>
+            <li>
               <Link
                 to={AppRoute.PROFILE_$ID_INTERESTS}
                 className={styles.listItemLink}
@@ -20,7 +20,7 @@ const Profile: React.FC = () => {
                 Interests
               </Link>
             </li>
-            <li className={styles.listItem}>
+            <li>
               <Link
                 to={AppRoute.PROFILE_$ID_SOCIAL_MEDIA}
                 className={styles.listItemLink}
@@ -29,7 +29,7 @@ const Profile: React.FC = () => {
                 Social Media
               </Link>
             </li>
-            <li className={styles.listItem}>
+            <li>
               <Link
                 to={AppRoute.PROFILE_$ID_EDIT_PROFILE}
                 className={styles.listItemLink}

@@ -1,6 +1,7 @@
 export { App } from "./app/app.js";
 export { Button } from "./button/button.js";
 export { Checkbox } from "./checkbox/checkbox.js";
+export { EventsNavigation } from "./events-navigation/events-navigation.js";
 export { Icon } from "./icon/icon.js";
 export { IconButton } from "./icon-button/icon-button.js";
 export { Input } from "./input/input.js";

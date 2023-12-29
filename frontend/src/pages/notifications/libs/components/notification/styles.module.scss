@@ -17,21 +17,17 @@
   height: 50px;
 }
 
-.message > strong {
-  font-weight: 700;
-}
-
-.message > span {
-  font-weight: 400;
-}
-
-.message > :is(strong, span) {
+.messageText {
   color: var(--light-gray);
   font-family: var(--manrope);
   font-size: 16px;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   line-height: 117.8%;
+}
+
+.highlightedText {
+  font-weight: 700;
 }
 
 .buttonsWrapper {

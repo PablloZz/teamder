@@ -1,0 +1,129 @@
+.card {
+  padding: 20px 25px 20px 30px;
+  display: flex;
+  gap: 20px;
+  overflow: auto;
+}
+
+.completedEvent {
+  background: var(--dark-gray);
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.eventInformation {
+  width: 100%;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.eventCreator {
+  color: var(--light-gray);
+  font-family: var(--manrope);
+  font-size: 16px;
+  font-style: normal;
+  line-height: normal;
+  font-weight: 400;
+  letter-spacing: -0.24px;
+}
+
+.eventName {
+  max-width: 450px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.eventDetails {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 15px;
+}
+
+.eventDetail {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon {
+  color: var(--light-gray);
+}
+
+.relatedInterests {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.relatedInterestsTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eventName,
+.eventDetailText,
+.relatedInterestsText,
+.relatedInterestsList {
+  color: var(--light-gray);
+  font-family: var(--manrope);
+  font-size: 16px;
+  font-style: normal;
+  line-height: 117.8%;
+  font-weight: 400;
+}
+
+.navigation {
+  margin: 50px 0 30px;
+}
+
+.navigationList {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.listItemLink {
+  position: relative;
+  color: var(--white);
+  font-family: var(--manrope);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 117.8%;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+.navigationList .listItemLink::after {
+  content: "";
+  position: absolute;
+  right: -12.5px;
+  height: 27px;
+  width: 2px;
+  background: var(--orange);
+  transform: translateX(50%);
+}
+
+.navigationList :last-child > .listItemLink::after {
+  all: unset;
+}
+
+.activeListItemLink {
+  font-weight: 700;
+  text-decoration: none;
+}

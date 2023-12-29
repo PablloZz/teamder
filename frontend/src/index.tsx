@@ -7,6 +7,17 @@ import { App, RouterProvider, StoreProvider } from "@/components/components.js";
 import { AppRoute } from "@/enums/enums.js";
 import { store } from "@/packages/store/store.js";
 import { Auth } from "~/pages/auth/auth.js";
+import {
+  Event,
+  EventDescription,
+  EventForum,
+  EventMembers,
+} from "~/pages/event/event.js";
+import {
+  MyCompletedEvents,
+  MyCurrentEvents,
+  MyEvents,
+} from "~/pages/my-events/my-events.js";
 import { Notifications } from "~/pages/notifications/notifications.js";
 import {
   EditProfile,
@@ -30,6 +41,39 @@ createRoot(document.querySelector("#root") as HTMLElement).render(
               { path: AppRoute.SIGN_UP_ADDITIONAL_INFO, element: <Auth /> },
               { path: AppRoute.SIGN_UP_INTERESTS, element: <Auth /> },
               {
+                path: AppRoute.MY_EVENTS,
+                element: <MyEvents />,
+                children: [
+                  {
+                    path: AppRoute.MY_EVENTS_CURRENT,
+                    element: <MyCurrentEvents />,
+                  },
+                  {
+                    path: AppRoute.MY_EVENTS_COMPLETED,
+                    element: <MyCompletedEvents />,
+                  },
+                ],
+              },
+              {
+                path: AppRoute.EVENTS_$ID,
+                element: <Event />,
+                children: [
+                  {
+                    path: AppRoute.EVENTS_$ID_DESCRIPTION,
+                    element: <EventDescription />,
+                  },
+                  {
+                    path: AppRoute.EVENTS_$ID_MEMBERS,
+                    element: <EventMembers />,
+                  },
+                  {
+                    path: AppRoute.EVENTS_$ID_FORUM,
+                    element: <EventForum />,
+                  },
+                ],
+              },
+              { path: AppRoute.NOTIFICATIONS, element: <Notifications /> },
+              {
                 path: AppRoute.PROFILE_$ID,
                 element: <Profile />,
                 children: [
@@ -47,7 +91,6 @@ createRoot(document.querySelector("#root") as HTMLElement).render(
                   },
                 ],
               },
-              { path: AppRoute.NOTIFICATIONS, element: <Notifications /> },
             ],
           },
         ]}

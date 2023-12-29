@@ -1,4 +1,5 @@
 import { Button } from "@/components/components.js";
+import { getValidClassNames } from "@/helpers/helpers.js";
 import avatar from "~/assets/images/avatar.png";
 
 import styles from "./styles.module.scss";
@@ -23,14 +24,28 @@ const Notification: React.FC = () => (
         height="130"
         className={styles.avatar}
       />
-      <div className={styles.message}>
-        <strong>
+      <h3>
+        <span
+          className={getValidClassNames(
+            styles.highlightedText,
+            styles.messageText,
+          )}
+        >
           {MOCKED_NOTIFICATION.sender.name}&nbsp;
-          {MOCKED_NOTIFICATION.sender.lastName}
-        </strong>
-        <span>&nbsp;{MOCKED_NOTIFICATION.message}&nbsp;</span>
-        <strong>{MOCKED_NOTIFICATION.event}</strong>!
-      </div>
+          {MOCKED_NOTIFICATION.sender.lastName}&nbsp;
+        </span>
+        <span className={styles.messageText}>
+          {MOCKED_NOTIFICATION.message}&nbsp;
+        </span>
+        <span
+          className={getValidClassNames(
+            styles.highlightedText,
+            styles.messageText,
+          )}
+        >
+          {MOCKED_NOTIFICATION.event}!
+        </span>
+      </h3>
     </div>
     <div className={styles.buttonsWrapper}>
       <Button

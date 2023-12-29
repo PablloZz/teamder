@@ -1,0 +1,32 @@
+.members {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.initials {
+  color: var(--light-gray);
+  font-family: var(--manrope);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 117.8%;
+}
+
+.currentUser .initials {
+  font-weight: 700;
+  line-height: 117.8%;
+  text-decoration-line: underline;
+  text-underline-offset: 5px;
+}

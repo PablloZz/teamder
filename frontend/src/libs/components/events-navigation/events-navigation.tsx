@@ -15,7 +15,9 @@ const EventsNavigation: React.FC = () => {
         <li>
           <Link
             to={
-              isMyEventsPage ? AppRoute.MY_EVENTS_CURRENT : AppRoute.EVENTS_CURRENT
+              isMyEventsPage
+                ? AppRoute.MY_EVENTS_CURRENT
+                : AppRoute.EVENTS_CURRENT
             }
             className={styles.listItemLink}
             activeClassName={styles.activeListItemLink}

@@ -24,12 +24,12 @@ const Sidebar: React.FC = () => (
         </li>
         <li className={styles.listItem}>
           <Link
-            to={AppRoute.TEAMS}
+            to={AppRoute.MY_EVENTS}
             className={styles.listItemLink}
             activeClassName={styles.activeListItemLink}
           >
             <Icon iconName="teams" className={styles.listItemIcon} />
-            Teams
+            My events
           </Link>
         </li>
         <li className={styles.listItem}>
@@ -54,10 +54,10 @@ const Sidebar: React.FC = () => (
         </li>
       </ul>
       <Button
-        label="Create a team"
+        label="Create an event"
         onClick={(): void => {}}
         type="button"
-        className={styles.createTeamButton}
+        className={styles.createEventButton}
       />
     </nav>
     <IconButton
